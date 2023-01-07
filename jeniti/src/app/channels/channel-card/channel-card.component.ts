@@ -17,7 +17,6 @@ export class ChannelCardComponent {
   }
 
   public hide(): void {
-    console.log('clicked');
     this.hidden = !this.hidden;
   }
 }

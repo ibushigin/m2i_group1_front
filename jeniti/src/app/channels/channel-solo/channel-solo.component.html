@@ -14,4 +14,8 @@
     <p>{{ channel.description }}</p>
   </div>
 
+  <div class="field" *ngIf="channel.id != 1">
+    <button (click)="deleteChannel(channel.id)">Supp</button>
+  </div>
+
 </div>

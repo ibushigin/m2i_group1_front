@@ -12,7 +12,7 @@ export class MessagesBubbleComponent {
 
   constructor(private mService: MessagesService) {}
 
-  deleteMessage(idMessage: number) {
+  deleteMessage(idMessage: number): void {
     this.mService.deleteMessagebyId(idMessage);
   }
 }
