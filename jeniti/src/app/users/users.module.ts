@@ -8,6 +8,6 @@ import { UsersRoutingModule } from './users-routing.module';
 @NgModule({
   declarations: [UsersListComponent, UserBubbleComponent],
   imports: [CommonModule, UsersRoutingModule],
-  exports: [UserBubbleComponent, UsersListComponent],
+  exports: [UsersListComponent],
 })
 export class UsersModule {}

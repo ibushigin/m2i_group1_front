@@ -1,17 +1,13 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
-import { MessagesRoutingModule } from './messages-routing.module';
+import { MessagesBubbleComponent } from './messages-bubble/messages-bubble.component';
 import { MessagesListComponent } from './messages-list/messages-list.component';
-
+import { MessagesRoutingModule } from './messages-routing.module';
 
 @NgModule({
-  declarations: [
-    MessagesListComponent
-  ],
-  imports: [
-    CommonModule,
-    MessagesRoutingModule
-  ]
+  declarations: [MessagesListComponent, MessagesBubbleComponent],
+  imports: [CommonModule, MessagesRoutingModule],
+  exports: [MessagesListComponent],
 })
-export class MessagesModule { }
+export class MessagesModule {}

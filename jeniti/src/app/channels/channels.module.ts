@@ -13,6 +13,6 @@ import { ChannelsListComponent } from './channels-list/channels-list.component';
     ChannelCardComponent,
   ],
   imports: [CommonModule, UsersModule],
-  exports: [ChannelsListComponent, ChannelSoloComponent, ChannelCardComponent],
+  exports: [ChannelsListComponent],
 })
 export class ChannelsModule {}
