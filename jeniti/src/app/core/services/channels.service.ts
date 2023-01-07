@@ -12,7 +12,8 @@ export class ChannelsService {
   public bChannels$!: BehaviorSubject<Channel[]>;
 
   constructor(private http: HttpClient) {
-    this.channels$ = this.http.get<Channel[]>(env.urlChannels);
+    this.bChannels$ = new BehaviorSubject<Channel[]>([]);
+    this.refresh();
   }
 
   refresh(): void {

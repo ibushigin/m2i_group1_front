@@ -12,7 +12,8 @@ export class MessagesService {
   public bMessages$!: BehaviorSubject<Message[]>;
 
   constructor(private http: HttpClient) {
-    this.messages$ = this.http.get<Message[]>(env.urlMessages);
+    this.bMessages$ = new BehaviorSubject<Message[]>([]);
+    this.refresh();
   }
 
   refresh(): void {

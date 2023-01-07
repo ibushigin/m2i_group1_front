@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { ChannelsModule } from '../channels/channels.module';
 import { SharedModule } from '../shared/shared.module';
 import { MainHeaderComponent } from './main-header/main-header.component';
 import { MainMessagesContainerComponent } from './main-messages-container/main-messages-container.component';
@@ -18,7 +19,7 @@ import { MainUiComponent } from './main-ui/main-ui.component';
     MainMessagesContainerComponent,
     MainHeaderComponent,
   ],
-  imports: [CommonModule, SharedModule, MainRoutingModule],
+  imports: [CommonModule, SharedModule, MainRoutingModule, ChannelsModule],
   exports: [
     MainNavHeaderComponent,
     MainNavComponent,

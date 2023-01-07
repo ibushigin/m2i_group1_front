@@ -12,7 +12,8 @@ export class UsersService {
   public bUsers$!: BehaviorSubject<User[]>;
 
   constructor(private http: HttpClient) {
-    this.users$ = this.http.get<User[]>(env.urlUsers);
+    this.bUsers$ = new BehaviorSubject<User[]>([]);
+    this.refresh();
   }
 
   refresh(): void {
