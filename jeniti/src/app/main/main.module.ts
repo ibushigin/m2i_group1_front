@@ -6,6 +6,7 @@ import { MainMessagesContainerComponent } from './main-messages-container/main-m
 import { MainMessagesFormComponent } from './main-messages-form/main-messages-form.component';
 import { MainNavHeaderComponent } from './main-nav-header/main-nav-header.component';
 import { MainNavComponent } from './main-nav/main-nav.component';
+import { MainRoutingModule } from './main-routing.module';
 import { MainUiComponent } from './main-ui/main-ui.component';
 
 @NgModule({
@@ -17,7 +18,7 @@ import { MainUiComponent } from './main-ui/main-ui.component';
     MainMessagesContainerComponent,
     MainHeaderComponent,
   ],
-  imports: [CommonModule, SharedModule],
+  imports: [CommonModule, SharedModule, MainRoutingModule],
   exports: [
     MainNavHeaderComponent,
     MainNavComponent,
