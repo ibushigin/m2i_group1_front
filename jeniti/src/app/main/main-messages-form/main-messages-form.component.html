@@ -1,1 +1,4 @@
-<p>Inserer le formulaire d'envoi de message ici</p>
+<form (ngSubmit)="onSubmit()">
+  <input type="text" id="contentInput" [(ngModel)]="contentInput" name="contentInput">
+  <button type="submit">Ok!</button>
+</form>

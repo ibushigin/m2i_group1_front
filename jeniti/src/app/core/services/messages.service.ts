@@ -25,18 +25,18 @@ export class MessagesService {
   deleteMessagebyId(MessageId: number) {
     return this.http
       .delete(`${env.urlMessages}/${MessageId}`)
-      .subscribe(this.refresh);
+      .subscribe(() => this.refresh());
   }
 
-  addMessage(Message: Message): Observable<Message> {
-    return this.http
+  addMessage(Message: Message) {
+    this.http
       .post<Message>(env.urlMessages, Message)
-      .pipe(tap(this.refresh));
+      .subscribe(() => this.refresh());
   }
 
   updateMessage(Message: Message): Observable<Message> {
     return this.http
       .put<Message>(env.urlMessages, Message)
-      .pipe(tap(this.refresh));
+      .pipe(tap(() => this.refresh()));
   }
 }

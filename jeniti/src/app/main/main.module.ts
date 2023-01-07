@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { ChannelsModule } from '../channels/channels.module';
 import { MessagesModule } from '../messages/messages.module';
 import { SharedModule } from '../shared/shared.module';
@@ -26,6 +27,7 @@ import { MainUiComponent } from './main-ui/main-ui.component';
     MainRoutingModule,
     ChannelsModule,
     MessagesModule,
+    FormsModule,
   ],
   exports: [MainUiComponent],
 })

@@ -25,18 +25,18 @@ export class ChannelsService {
   deleteChannelbyId(channelId: number) {
     return this.http
       .delete(`${env.urlChannels}/${channelId}`)
-      .subscribe(this.refresh);
+      .subscribe(() => this.refresh());
   }
 
-  addChannel(channel: Channel): Observable<Channel> {
-    return this.http
+  addChannel(channel: Channel) {
+    this.http
       .post<Channel>(env.urlChannels, channel)
-      .pipe(tap(this.refresh));
+      .subscribe(() => this.refresh());
   }
 
   updateChannel(channel: Channel): Observable<Channel> {
     return this.http
       .put<Channel>(env.urlChannels, channel)
-      .pipe(tap(this.refresh));
+      .pipe(tap(() => this.refresh()));
   }
 }
