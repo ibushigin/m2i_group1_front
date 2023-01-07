@@ -1,17 +1,13 @@
-import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { NgModule } from '@angular/core';
 
-import { UsersRoutingModule } from './users-routing.module';
+import { UserBubbleComponent } from './user-bubble/user-bubble.component';
 import { UsersListComponent } from './users-list/users-list.component';
-
+import { UsersRoutingModule } from './users-routing.module';
 
 @NgModule({
-  declarations: [
-    UsersListComponent
-  ],
-  imports: [
-    CommonModule,
-    UsersRoutingModule
-  ]
+  declarations: [UsersListComponent, UserBubbleComponent],
+  imports: [CommonModule, UsersRoutingModule],
+  exports: [UserBubbleComponent, UsersListComponent],
 })
-export class UsersModule { }
+export class UsersModule {}
