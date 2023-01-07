@@ -17,7 +17,9 @@ export class UsersService {
   }
 
   refresh(): void {
-    this.http.get<User[]>(env.urlUsers).subscribe(this.bUsers$.next);
+    this.http
+      .get<User[]>(env.urlUsers)
+      .subscribe((data) => this.bUsers$.next(data));
   }
 
   deleteUserbyId(UserId: number) {

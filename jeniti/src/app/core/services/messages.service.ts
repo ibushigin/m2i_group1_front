@@ -17,7 +17,9 @@ export class MessagesService {
   }
 
   refresh(): void {
-    this.http.get<Message[]>(env.urlMessages).subscribe(this.bMessages$.next);
+    this.http
+      .get<Message[]>(env.urlMessages)
+      .subscribe((data) => this.bMessages$.next(data));
   }
 
   deleteMessagebyId(MessageId: number) {

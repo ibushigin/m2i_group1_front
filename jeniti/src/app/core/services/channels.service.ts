@@ -17,7 +17,9 @@ export class ChannelsService {
   }
 
   refresh(): void {
-    this.http.get<Channel[]>(env.urlChannels).subscribe(this.bChannels$.next);
+    this.http
+      .get<Channel[]>(env.urlChannels)
+      .subscribe((data) => this.bChannels$.next(data));
   }
 
   deleteChannelbyId(channelId: number) {
