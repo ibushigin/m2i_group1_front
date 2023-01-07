@@ -15,14 +15,14 @@ export class MainMessagesFormComponent {
   constructor(private mService: MessagesService) {}
 
   onSubmit(): void {
-    let message: Message = new Message();
-    let user: User = new User();
-    user.id = this.idInput;
-    message.content = this.contentInput;
-    message.user_id = user;
+    if (this.contentInput) {
+      let message: Message = new Message();
+      let user: User = new User();
+      user.id = this.idInput;
+      message.content = this.contentInput;
+      message.user_id = user;
 
-    console.log(message);
-
-    this.mService.addMessage(message);
+      this.mService.addMessage(message);
+    }
   }
 }
