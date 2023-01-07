@@ -12,6 +12,6 @@ export class UsersListComponent {
   users$!: BehaviorSubject<User[]>;
 
   constructor(private uService: UsersService) {
-    this.users$ = this.uService.bUser$;
+    this.users$ = this.uService.bUsers$;
   }
 }
