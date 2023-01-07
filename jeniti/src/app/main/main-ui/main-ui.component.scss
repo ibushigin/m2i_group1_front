@@ -3,6 +3,7 @@
 
   .nav__container {
     position:fixed;
+    top:0;
     width: 200px;
 
     .nav__header {
@@ -19,7 +20,7 @@
   .messages__container {
     position: fixed;
     width: calc(100vw - 200px);
-    padding-left: 200px;
+    left: 200px;
 
     .message__header {
       height: 80px;

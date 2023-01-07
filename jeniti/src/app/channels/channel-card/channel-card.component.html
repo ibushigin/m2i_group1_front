@@ -1,6 +1,7 @@
-<app-channel-solo [channel]="channel"></app-channel-solo>
-<button (click)="hide()">hide</button>
+<div class="container" (click)="hide()">
+  <app-channel-solo [channel]="channel"></app-channel-solo>
 
-<div class="div_users_channel" [ngClass]="{'hidden' : hidden}">
-  <app-users-list></app-users-list>
+  <div class="div_users_channel" [ngClass]="{'hidden' : hidden}">
+    <app-users-list></app-users-list>
+  </div>
 </div>
