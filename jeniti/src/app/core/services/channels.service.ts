@@ -9,14 +9,14 @@ import { Channel } from '../models/channels';
 })
 export class ChannelsService {
   public channels$!: Observable<Channel[]>;
-  public bChannel$!: BehaviorSubject<Channel[]>;
+  public bChannels$!: BehaviorSubject<Channel[]>;
 
   constructor(private http: HttpClient) {
     this.channels$ = this.http.get<Channel[]>(env.urlChannels);
   }
 
   refresh(): void {
-    this.http.get<Channel[]>(env.urlChannels).subscribe(this.bChannel$.next);
+    this.http.get<Channel[]>(env.urlChannels).subscribe(this.bChannels$.next);
   }
 
   deleteChannelbyId(channelId: number) {

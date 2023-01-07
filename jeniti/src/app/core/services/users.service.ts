@@ -9,14 +9,14 @@ import { User } from '../models/users';
 })
 export class UsersService {
   public users$!: Observable<User[]>;
-  public bUser$!: BehaviorSubject<User[]>;
+  public bUsers$!: BehaviorSubject<User[]>;
 
   constructor(private http: HttpClient) {
     this.users$ = this.http.get<User[]>(env.urlUsers);
   }
 
   refresh(): void {
-    this.http.get<User[]>(env.urlUsers).subscribe(this.bUser$.next);
+    this.http.get<User[]>(env.urlUsers).subscribe(this.bUsers$.next);
   }
 
   deleteUserbyId(UserId: number) {
