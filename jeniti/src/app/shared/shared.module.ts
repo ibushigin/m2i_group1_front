@@ -8,6 +8,6 @@ import { IconComponent } from './components/icon/icon.component';
 @NgModule({
   declarations: [BtnComponent, IconComponent],
   imports: [CommonModule, RouterModule, FontAwesomeModule],
-  exports: [BtnComponent],
+  exports: [BtnComponent, IconComponent],
 })
 export class SharedModule {}

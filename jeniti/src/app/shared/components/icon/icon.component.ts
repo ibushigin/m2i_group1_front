@@ -8,7 +8,7 @@ import { Icons } from 'src/app/core/enums/icons';
   styleUrls: ['./icon.component.scss'],
 })
 export class IconComponent implements OnInit {
-  @Input() type!: 'CROIX' | 'EDIT' | 'DELETE' | 'NAV';
+  @Input() type!: 'CROIX' | 'EDIT' | 'DELETE' | 'NAV' | 'SEND' | 'BACK';
   icon!: IconDefinition;
 
   ngOnInit(): void {
@@ -20,6 +20,10 @@ export class IconComponent implements OnInit {
       this.icon = Icons.DELETE;
     } else if (this.type == 'NAV') {
       this.icon = Icons.NAV;
+    } else if (this.type == 'SEND') {
+      this.icon = Icons.SEND;
+    } else if (this.type == 'BACK') {
+      this.icon = Icons.BACK;
     }
   }
 }

@@ -6,7 +6,11 @@
     <p>{{ channel.description }}</p>
   </div>
   <div class="field" *ngIf="channel.id != 1">
-    <button (click)="deleteChannel(channel.id)">Icone Supp</button>
-    <app-btn [route]="route">Icone Edit</app-btn>
+    <button (click)="deleteChannel(channel.id)">
+      <app-icon type="DELETE"></app-icon>
+    </button>
+    <app-btn [route]="route">
+      <app-icon type="EDIT"></app-icon>
+    </app-btn>
   </div>
 </div>
