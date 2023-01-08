@@ -1,18 +1,10 @@
+@import "src/stylings/theme";
 .channel_infos {
-
-  border: 1px solid white;
-  margin: 5px;
-
   p {
-    color: white;
+    color: $app-secondary-fontcolor;
   }
-
-  .field {
-    margin: 5px;
-  }
-
   h4 {
-    text-align: center;
-    color: rgb(83, 218, 74);
+    color: $app-primary-fontcolor;
   }
 }
+
