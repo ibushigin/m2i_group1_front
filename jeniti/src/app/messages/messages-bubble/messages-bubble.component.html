@@ -1,10 +1,15 @@
 <div class="message_content">
-  <p>#{{ message.id }}| {{message.user_id.username}} : {{ message.content }} ({{ message.created_at | date: 'short' }})
-    <button (click)="deleteMessage(message.id)">
-      <app-icon type="DELETE"></app-icon>
-    </button>
-    <app-btn [route]="route">
-      <app-icon type="EDIT"></app-icon>
-    </app-btn>
-  </p>
+  <div class="message__bubble">
+    <span class="message__bubble--user">{{message.user_id.username}}</span>
+    <span>{{ message.content }} </span>
+    <span class="message__bubble__date">Envoyé {{ message.created_at | date: 'short' }}</span>
+    <div class="message__bubble__icons">
+      <app-btn (click)="deleteMessage(message.id)">
+        <app-icon type="DELETE"></app-icon>
+      </app-btn>
+      <app-btn [route]="route">
+        <app-icon type="EDIT"></app-icon>
+      </app-btn>
+    </div>
+  </div>
 </div>
