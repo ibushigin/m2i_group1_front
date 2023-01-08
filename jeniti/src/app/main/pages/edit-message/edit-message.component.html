@@ -1,1 +1,8 @@
-<p>edit-message works!</p>
+<app-main-gabarit>
+  <app-btn route="/main">Retour aux messages</app-btn>
+
+  <form class="message__form__container" (ngSubmit)="onSubmit()" *ngIf="message$ | async as message">
+    <input type="text" id="contentInput" [(ngModel)]="contentInput" name="contentInput" [placeholder]="message.content">
+    <button type="submit">Modifier</button>
+  </form>
+</app-main-gabarit>

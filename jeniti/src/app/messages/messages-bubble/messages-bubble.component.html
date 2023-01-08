@@ -1,5 +1,6 @@
 <div class="message_content">
   <p>#{{ message.id }}| {{message.user_id.username}} : {{ message.content }} ({{ message.created_at}})
     <button (click)="deleteMessage(message.id)">Supp</button>
+    <app-btn [route]="route">Edit</app-btn>
   </p>
 </div>

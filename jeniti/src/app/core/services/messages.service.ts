@@ -22,21 +22,25 @@ export class MessagesService {
       .subscribe((data) => this.bMessages$.next(data));
   }
 
-  deleteMessagebyId(MessageId: number) {
+  getMessageById(messageId: number): Observable<Message> {
+    return this.http.get<Message>(`${env.urlMessages}/${messageId}`);
+  }
+
+  deleteMessagebyId(messageId: number) {
     return this.http
-      .delete(`${env.urlMessages}/${MessageId}`)
+      .delete(`${env.urlMessages}/${messageId}`)
       .subscribe(() => this.refresh());
   }
 
-  addMessage(Message: Message) {
+  addMessage(message: Message) {
     this.http
-      .post<Message>(env.urlMessages, Message)
+      .post<Message>(env.urlMessages, message)
       .subscribe(() => this.refresh());
   }
 
-  updateMessage(Message: Message): Observable<Message> {
+  updateMessage(message: Message): Observable<Message> {
     return this.http
-      .put<Message>(env.urlMessages, Message)
+      .put<Message>(`${env.urlMessages}/${message.id}`, message)
       .pipe(tap(() => this.refresh()));
   }
 }
