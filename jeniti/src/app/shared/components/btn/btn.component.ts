@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-btn',
@@ -7,4 +8,10 @@ import { Component, Input } from '@angular/core';
 })
 export class BtnComponent {
   @Input() route!: string;
+
+  constructor(private router: Router) {}
+
+  goTo() {
+    this.router.navigate([this.route]);
+  }
 }
