@@ -25,14 +25,18 @@ export class UsersService {
   deleteUserbyId(UserId: number) {
     return this.http
       .delete(`${env.urlUsers}/${UserId}`)
-      .subscribe(this.refresh);
+      .subscribe(() => this.refresh());
   }
 
   addUser(User: User) {
-    this.http.post<User>(env.urlRegister, User).subscribe(() => this.refresh);
+    return this.http
+      .post<User>(env.urlRegister, User)
+      .pipe(tap(() => this.refresh()));
   }
 
   updateUser(User: User): Observable<User> {
-    return this.http.put<User>(env.urlUsers, User).pipe(tap(this.refresh));
+    return this.http
+      .put<User>(env.urlUsers, User)
+      .pipe(tap(() => this.refresh()));
   }
 }
