@@ -2,7 +2,7 @@
   <app-btn route="/main">Retour aux messages</app-btn>
 
   <form class="message__form__container" (ngSubmit)="onSubmit()" *ngIf="message$ | async as message">
-    <input type="text" id="contentInput" [(ngModel)]="contentInput" name="contentInput" [placeholder]="message.content">
+    <input type="text" id="contentInput" [(ngModel)]="contentInput" name="contentInput">
     <button type="submit">Modifier</button>
   </form>
 </app-main-gabarit>

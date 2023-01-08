@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Observable } from 'rxjs';
+import { Observable, tap } from 'rxjs';
 import { Message } from 'src/app/core/models/messages';
 import { MessagesService } from 'src/app/core/services/messages.service';
 
@@ -11,7 +11,6 @@ import { MessagesService } from 'src/app/core/services/messages.service';
 })
 export class EditMessageComponent {
   contentInput!: string;
-  idInput: number = 1;
 
   idMessage!: number;
   message$!: Observable<Message>;
@@ -22,7 +21,9 @@ export class EditMessageComponent {
     private router: Router
   ) {
     this.idMessage = +this.aRouter.snapshot.params['id'];
-    this.message$ = this.mService.getMessageById(this.idMessage);
+    this.message$ = this.mService
+      .getMessageById(this.idMessage)
+      .pipe(tap((data) => (this.contentInput = data.content)));
   }
 
   onSubmit(): void {
