@@ -1,5 +1,5 @@
 <div class="message_content">
-  <p>#{{ message.id }}| {{message.user_id.username}} : {{ message.content }} ({{ message.created_at}})
+  <p>#{{ message.id }}| {{message.user_id.username}} : {{ message.content }} ({{ message.created_at | date: 'short' }})
     <button (click)="deleteMessage(message.id)">
       <app-icon type="DELETE"></app-icon>
     </button>
