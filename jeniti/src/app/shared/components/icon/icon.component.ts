@@ -8,7 +8,14 @@ import { Icons } from 'src/app/core/enums/icons';
   styleUrls: ['./icon.component.scss'],
 })
 export class IconComponent implements OnInit {
-  @Input() type!: 'CROIX' | 'EDIT' | 'DELETE' | 'NAV' | 'SEND' | 'BACK';
+  @Input() type!:
+    | 'CROIX'
+    | 'EDIT'
+    | 'DELETE'
+    | 'NAV'
+    | 'SEND'
+    | 'BACK'
+    | 'PLUS';
   icon!: IconDefinition;
 
   ngOnInit(): void {
@@ -24,6 +31,8 @@ export class IconComponent implements OnInit {
       this.icon = Icons.SEND;
     } else if (this.type == 'BACK') {
       this.icon = Icons.BACK;
+    } else if (this.type == 'PLUS') {
+      this.icon = Icons.PLUS;
     }
   }
 }

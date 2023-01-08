@@ -3,6 +3,7 @@ import {
   faBars,
   faEdit,
   faPaperPlane,
+  faPlusSquare,
   faTimes,
   faTrash,
 } from '@fortawesome/free-solid-svg-icons';
@@ -14,4 +15,5 @@ export const Icons = {
   NAV: faBars,
   SEND: faPaperPlane,
   BACK: faArrowCircleLeft,
+  PLUS: faPlusSquare,
 };
