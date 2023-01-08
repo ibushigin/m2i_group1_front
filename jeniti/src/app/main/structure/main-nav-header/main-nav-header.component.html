@@ -1,6 +1,1 @@
-<form [formGroup]="channelForm">
-  <input type="text" id="nameInput" formControlName="name" placeholder="Nom du channel">
-  <input type="text" id="descriptionInput" formControlName="description" placeholder="description">
-  <br>
-  <button type="submit" (click)="onSubmit()" [disabled]="channelForm.invalid">Créer salon</button>
-</form>
+<app-btn route="addChannel">Créer Salon</app-btn>
