@@ -1,9 +1,28 @@
-
+@import "src/stylings/theme";
 .message_content {
+  background-color: $app-primary-light;
+  display: flex;
+  padding: 10px 10px;
+  margin: 30px 30px;
+  width: 90%;
+  border-radius: 15px;
 
-  text-align: left;
 
-  p {
-    color:white;
+
+  .message__bubble {
+    color:$app-primary-fontcolor;
+    display: flex;
+    flex-direction: column;
+
+
+  }
+  .message__bubble__date{
+    color: $app-secondary-fontcolor;
+  }
+  .message__bubble__icons{
+    color: $app-secondary-fontcolor;
+  }
+  .message__bubble--user{
+    font-weight: bold;
   }
 }

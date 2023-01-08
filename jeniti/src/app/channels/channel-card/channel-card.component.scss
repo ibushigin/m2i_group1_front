@@ -7,9 +7,10 @@
   padding: 10px 0px;
 
   }
-.container__channel:not(:first-child){
 
-}
 .container__channel:hover{
   background-color: $app-primary;
+}
+.div_users_channel{
+  color: $app-secondary-fontcolor;
 }
