@@ -1,19 +1,25 @@
+@import "src/stylings/theme";
 .main__container {
   height: 100vh;
+  background-color: $app-primary-dark;
 
   .nav__container {
     position:fixed;
     top:0;
     width: 200px;
 
+
     .nav__header {
       height: 80px;
-      background: rgb(112, 101, 101);
+      background: $app-primary;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .main__nav {
       height: calc(100vh - 80px);
-      background: rgb(41, 39, 39);
+      background: $app-primary-dark;
     }
   }
 
@@ -24,20 +30,26 @@
 
     .message__header {
       height: 80px;
-      background: pink;
+      background: $app-primary;
+      color: $app-primary-fontcolor;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .messages__area{
       height: calc(100vh - 160px);
-      background: rgb(5, 59, 5);
+      background: $app-primary-darkest;
       overflow-y: auto;
 
     }
 
     .messages__form {
       height: 100px;
-      background: pink;
+      background: $app-primary;
+
 
     }
   }
 }
+
