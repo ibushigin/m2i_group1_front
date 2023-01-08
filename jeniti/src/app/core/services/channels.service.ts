@@ -22,6 +22,10 @@ export class ChannelsService {
       .subscribe((data) => this.bChannels$.next(data));
   }
 
+  getChannelById(channelId: number) {
+    return this.http.get<Channel>(`${env.urlChannels}/${channelId}`);
+  }
+
   deleteChannelbyId(channelId: number) {
     return this.http
       .delete(`${env.urlChannels}/${channelId}`)
@@ -34,9 +38,9 @@ export class ChannelsService {
       .subscribe(() => this.refresh());
   }
 
-  updateChannel(channel: Channel): Observable<Channel> {
+  updateChannel(channel: Channel, idChannel: number): Observable<Channel> {
     return this.http
-      .put<Channel>(env.urlChannels, channel)
+      .put<Channel>(`${env.urlChannels}/${idChannel}`, channel)
       .pipe(tap(() => this.refresh()));
   }
 }

@@ -21,7 +21,7 @@ export class EditMessageComponent {
     private aRouter: ActivatedRoute,
     private router: Router
   ) {
-    this.idMessage = this.aRouter.snapshot.params['id'];
+    this.idMessage = +this.aRouter.snapshot.params['id'];
     this.message$ = this.mService.getMessageById(this.idMessage);
   }
 

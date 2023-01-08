@@ -1,5 +1,6 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
+import { SharedModule } from '../shared/shared.module';
 
 import { UsersModule } from '../users/users.module';
 import { ChannelCardComponent } from './channel-card/channel-card.component';
@@ -12,7 +13,7 @@ import { ChannelsListComponent } from './channels-list/channels-list.component';
     ChannelSoloComponent,
     ChannelCardComponent,
   ],
-  imports: [CommonModule, UsersModule],
+  imports: [CommonModule, UsersModule, SharedModule],
   exports: [ChannelsListComponent],
 })
 export class ChannelsModule {}

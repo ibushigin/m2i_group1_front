@@ -16,6 +16,7 @@
 
   <div class="field" *ngIf="channel.id != 1">
     <button (click)="deleteChannel(channel.id)">Supp</button>
+    <app-btn [route]="route">Edit</app-btn>
   </div>
 
 </div>
