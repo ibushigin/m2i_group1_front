@@ -1,13 +1,15 @@
-.div_users_channel {
-  background: white;
-  margin:5px;
-  padding: 5px;
-}
-
+@import "src/stylings/theme";
 .hidden {
   display: none;
 }
-
-.container {
+.container__channel {
   cursor: pointer;
+  padding: 10px 0px;
+
+  }
+.container__channel:not(:first-child){
+
+}
+.container__channel:hover{
+  background-color: $app-primary;
 }

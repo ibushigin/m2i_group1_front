@@ -1,16 +1,16 @@
 <app-main-gabarit>
   <app-btn route="/main">Retour aux messages</app-btn>
   <div class="form_card">
-    <h1>Creer un nouveau salon :</h1>
+    <h1>Créer un nouveau salon</h1>
     <form [formGroup]="channelForm">
       <div class="form_group">
-        <label for="nameInput">Nom du salon :</label>
-        <input type="text" id="nameInput" formControlName="name" placeholder="Nom du channel">
+        <label for="nameInput">Nom du salon</label>
+        <input type="text" id="nameInput" formControlName="name" placeholder="Entrer un nom de salon">
       </div>
 
       <div class="form_group">
-        <label for="descriptionInput">Description : </label>
-        <input type="text" id="descriptionInput" formControlName="description" placeholder="description">
+        <label for="descriptionInput">Description</label>
+        <input type="text" id="descriptionInput" formControlName="description" placeholder="Entrer une description de salon">
       </div>
 
       <div class="action_button">

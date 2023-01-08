@@ -1,22 +1,12 @@
 <div class="channel_infos">
   <div class="field">
-    <h4>Nom :</h4>
-    <p>#{{ channel.name }}</p>
+    <h4>{{ channel.name }}</h4>
   </div>
-
-  <div class="field" *ngIf="channel.created_at">
-    <h4>Crée le :</h4>
-    <p>{{ channel.created_at }}</p>
-  </div>
-
   <div class="field">
-    <h4>Description : </h4>
     <p>{{ channel.description }}</p>
   </div>
-
   <div class="field" *ngIf="channel.id != 1">
-    <button (click)="deleteChannel(channel.id)">Supp</button>
-    <app-btn [route]="route">Edit</app-btn>
+    <button (click)="deleteChannel(channel.id)">Icone Supp</button>
+    <app-btn [route]="route">Icone Edit</app-btn>
   </div>
-
 </div>
