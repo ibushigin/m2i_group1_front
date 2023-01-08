@@ -23,6 +23,7 @@ export class MainMessagesFormComponent {
       message.user_id = user;
 
       this.mService.addMessage(message);
+      this.contentInput = '';
     }
   }
 }
