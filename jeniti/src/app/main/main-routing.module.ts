@@ -1,8 +1,8 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { MainUiComponent } from './main-ui/main-ui.component';
+import { GetMessagesComponent } from './pages/get-messages/get-messages.component';
 
-const routes: Routes = [{ path: '', component: MainUiComponent }];
+const routes: Routes = [{ path: '', component: GetMessagesComponent }];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
