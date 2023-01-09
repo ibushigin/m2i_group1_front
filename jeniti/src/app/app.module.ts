@@ -18,7 +18,10 @@ import { CoreModule } from './core/core.module';
     HttpClientModule,
     FontAwesomeModule,
   ],
-  providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'fr-FR' },
+    // HttpInterceptorProviders,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {
