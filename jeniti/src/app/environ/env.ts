@@ -3,6 +3,6 @@ export const env = {
   urlChannels: 'http://localhost:8080/channels',
   urlUsers: 'http://localhost:8080/users',
   urlLogin: 'http://localhost:8080/login',
-  urlLogout: 'http://localhost:8080/logout',
+  urlLogout: 'http://localhost:8080/logOut',
   urlRegister: 'http://localhost:8080/register',
 };
