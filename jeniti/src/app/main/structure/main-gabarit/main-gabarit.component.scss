@@ -40,10 +40,9 @@
     .messages__area{
       height: calc(100vh - 160px);
       background: $app-primary-darkest;
-      overflow-y: auto;
+      overflow-y: scroll;
 
     }
-
     .messages__form {
       height: 100px;
       background: $app-primary;

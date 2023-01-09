@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
 import { Message } from 'src/app/core/models/messages';
 import { MessagesService } from 'src/app/core/services/messages.service';
@@ -14,4 +14,5 @@ export class MessagesListComponent {
   constructor(private mService: MessagesService) {
     this.messages$ = this.mService.bMessages$;
   }
+
 }

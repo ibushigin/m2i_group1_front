@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ChannelsService } from 'src/app/core/services/channels.service';
 
@@ -7,8 +7,9 @@ import { ChannelsService } from 'src/app/core/services/channels.service';
   templateUrl: './add-channel.component.html',
   styleUrls: ['./add-channel.component.scss'],
 })
-export class AddChannelComponent {
+export class AddChannelComponent{
   channelForm!: FormGroup;
+
   constructor(
     private cService: ChannelsService,
     private formBuilder: FormBuilder
