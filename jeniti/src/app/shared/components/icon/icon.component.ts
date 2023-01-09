@@ -1,6 +1,8 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { IconDefinition } from '@fortawesome/free-solid-svg-icons';
 import { Icons } from 'src/app/core/enums/icons';
+import {LoginIcons} from "../../../core/enums/login-icons";
+
 
 @Component({
   selector: 'app-icon',
@@ -16,7 +18,10 @@ export class IconComponent implements OnInit {
     | 'SEND'
     | 'BACK'
     | 'OUT'
-    | 'PLUS';
+    | 'PLUS'
+    | 'ASTRONAUT'
+    | 'NINJA'
+    | 'SPY';
   icon!: IconDefinition;
 
   ngOnInit(): void {
@@ -36,6 +41,12 @@ export class IconComponent implements OnInit {
       this.icon = Icons.PLUS;
     }else if (this.type == 'OUT') {
       this.icon = Icons.OUT;
+    }else if (this.type == 'ASTRONAUT') {
+      this.icon = LoginIcons.ASTRONAUT;
+    }else if (this.type == 'NINJA'){
+      this.icon = LoginIcons.NINJA;
+    }else if (this.type == 'SPY'){
+      this.icon = LoginIcons.SPY;
     }
 
   }

@@ -5,6 +5,18 @@
 .container__channel {
   cursor: pointer;
   padding: 20px 10px;
+  position: relative;
+}
+.container__channel:before{
+  content: "";
+  position: absolute;
+  margin: auto;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 80%;
+  border-bottom: 1px solid $app-secondary-fontcolor;
 }
 
 .container__channel:hover{
@@ -20,7 +32,10 @@
 
 }
 .div_users_channel{
-  padding: 10px;
+  margin-top: 10px;
   font-size: 0.9em;
+}
+p{
+  margin-bottom: 5px;
 }
 
