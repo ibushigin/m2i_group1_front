@@ -2,7 +2,9 @@
   <app-channel-solo [channel]="channel"></app-channel-solo>
 
   <div class="div_users_channel" [ngClass]="{'hidden' : hidden}">
-    <div class="field" *ngIf="channel.id != 1">
+    <p>Liste des membres:</p>
+    <app-users-list></app-users-list>
+    <div class="channel__card__icons" *ngIf="channel.id != 1">
       <app-btn (click)="deleteChannel(channel.id)">
         <app-icon type="DELETE"></app-icon>
       </app-btn>
@@ -10,7 +12,5 @@
         <app-icon type="EDIT"></app-icon>
       </app-btn>
     </div>
-    <p>Liste des membres:</p>
-    <app-users-list></app-users-list>
   </div>
 </div>
