@@ -28,6 +28,7 @@ export class AuthService {
     });
   }
 
+  //BOF A NE PAS UTILISER
   getSessionUser(): User {
     const user: string | null = localStorage.getItem('currentUser');
     let sessionUser: User = new User();

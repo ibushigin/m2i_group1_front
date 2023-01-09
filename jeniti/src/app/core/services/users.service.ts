@@ -22,21 +22,27 @@ export class UsersService {
       .subscribe((data) => this.bUsers$.next(data));
   }
 
-  deleteUserbyId(UserId: number) {
+  getUserById(userId: number): Observable<User> {
     return this.http
-      .delete(`${env.urlUsers}/${UserId}`)
-      .subscribe(() => this.refresh());
-  }
-
-  addUser(User: User) {
-    return this.http
-      .post<User>(env.urlRegister, User)
+      .get<User>(`${env.urlUsers}/${userId}`)
       .pipe(tap(() => this.refresh()));
   }
 
-  updateUser(User: User): Observable<User> {
+  deleteUserbyId(userId: number) {
+    this.http
+      .delete(`${env.urlUsers}/${userId}`)
+      .subscribe(() => this.refresh());
+  }
+
+  addUser(user: User): Observable<User> {
     return this.http
-      .put<User>(env.urlUsers, User)
+      .post<User>(env.urlRegister, user)
+      .pipe(tap(() => this.refresh()));
+  }
+
+  updateUser(user: User): Observable<User> {
+    return this.http
+      .put<User>(env.urlUsers, user)
       .pipe(tap(() => this.refresh()));
   }
 }

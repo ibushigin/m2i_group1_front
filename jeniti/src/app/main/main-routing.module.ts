@@ -1,15 +1,28 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from '../core/guards/auth.guard';
 import { AddChannelComponent } from './pages/add-channel/add-channel.component';
 import { EditChannelComponent } from './pages/edit-channel/edit-channel.component';
 import { EditMessageComponent } from './pages/edit-message/edit-message.component';
 import { GetMessagesComponent } from './pages/get-messages/get-messages.component';
 
 const routes: Routes = [
-  { path: '', component: GetMessagesComponent },
-  { path: 'addChannel', component: AddChannelComponent },
-  { path: 'editMessage/:id', component: EditMessageComponent },
-  { path: 'editChannel/:id', component: EditChannelComponent },
+  { path: '', component: GetMessagesComponent, canActivate: [AuthGuard] },
+  {
+    path: 'addChannel',
+    component: AddChannelComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'editMessage/:id',
+    component: EditMessageComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'editChannel/:id',
+    component: EditChannelComponent,
+    canActivate: [AuthGuard],
+  },
 ];
 
 @NgModule({
