@@ -1,0 +1,32 @@
+import {
+  HttpEvent,
+  HttpHandler,
+  HttpRequest,
+  HttpXsrfTokenExtractor,
+} from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+
+@Injectable({
+  providedIn: 'root',
+})
+export class HttpInterceptorService {
+  constructor(private tokenExtractor: HttpXsrfTokenExtractor) {}
+
+  intercept(
+    req: HttpRequest<any>,
+    next: HttpHandler
+  ): Observable<HttpEvent<any>> {
+    const headerName = 'JSESSIONID';
+    // const token = this.tokenExtractor.getToken() as string;
+    const token = '200350055188FA22D3B6306AF127021C; Path=/; HttpOnly';
+
+    if (token && !req.headers.has(headerName)) {
+      req = req.clone({
+        headers: req.headers.set(headerName, token),
+      });
+    }
+
+    return next.handle(req);
+  }
+}

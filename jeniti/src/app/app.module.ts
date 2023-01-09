@@ -3,11 +3,16 @@ import * as fr from '@angular/common/locales/fr';
 import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
-import { HttpClientModule } from '@angular/common/http';
+import {
+  HttpClientModule,
+  HttpClientXsrfModule,
+  HTTP_INTERCEPTORS,
+} from '@angular/common/http';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
+import { HttpInterceptorService } from './core/interceptors/http-interceptor/http-interceptor.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -17,8 +22,18 @@ import { CoreModule } from './core/core.module';
     AppRoutingModule,
     HttpClientModule,
     FontAwesomeModule,
+    HttpClientXsrfModule.withOptions({
+      cookieName: 'JSESSIONID',
+    }),
   ],
-  providers: [{ provide: LOCALE_ID, useValue: 'fr-FR' }],
+  providers: [
+    { provide: LOCALE_ID, useValue: 'fr-FR' },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: HttpInterceptorService,
+      multi: true,
+    },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {
