@@ -1,3 +1,4 @@
-<div class="container">
-  <span>le current channel</span>
+<div class="container" *ngIf="user">
+  <span>le current channel : {{ user.current_channel.name }} </span><br>
+  <span>current user : {{ user.username }}</span>
 </div>
