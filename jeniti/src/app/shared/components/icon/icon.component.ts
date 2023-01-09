@@ -15,6 +15,7 @@ export class IconComponent implements OnInit {
     | 'NAV'
     | 'SEND'
     | 'BACK'
+    | 'OUT'
     | 'PLUS';
   icon!: IconDefinition;
 
@@ -33,6 +34,9 @@ export class IconComponent implements OnInit {
       this.icon = Icons.BACK;
     } else if (this.type == 'PLUS') {
       this.icon = Icons.PLUS;
+    }else if (this.type == 'OUT') {
+      this.icon = Icons.OUT;
     }
+
   }
 }

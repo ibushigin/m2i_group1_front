@@ -2,12 +2,10 @@
 .form_card {
   width: 50%;
   margin: 20px auto;
-  padding: 10px 30px;
+  padding: 30px 30px;
   color: $app-primary-fontcolor;
   background-color: $app-primary;
   border-radius: 15px;
-
-
 }
 
 .form_group {
@@ -27,8 +25,6 @@ input, textarea {
   padding-left: 10px;
   height: 50px;
   font-size: 1.2rem;
-
-
 }
 
 .action_buttons {
@@ -36,8 +32,16 @@ input, textarea {
 }
 
 button {
+  padding: 10px 15px;
   display: block;
-  margin: 20px auto;
+  margin: 50px auto 20px auto;
+  background-color: $app-primary-light;
+  color: $app-primary-fontcolor;
+  border: none;
+  border-radius: 15px;
+}
+button:hover{
+  cursor: pointer;
 }
 h1 {
   text-align: center;

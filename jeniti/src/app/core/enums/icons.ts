@@ -6,6 +6,8 @@ import {
   faPlusSquare,
   faTimes,
   faTrash,
+  faSignOutAlt
+
 } from '@fortawesome/free-solid-svg-icons';
 
 export const Icons = {
@@ -16,4 +18,5 @@ export const Icons = {
   SEND: faPaperPlane,
   BACK: faArrowCircleLeft,
   PLUS: faPlusSquare,
+  OUT: faSignOutAlt,
 };

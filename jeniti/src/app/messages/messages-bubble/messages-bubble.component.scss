@@ -21,8 +21,16 @@
   }
   .message__bubble__icons{
     color: $app-secondary-fontcolor;
+
   }
-  .message__bubble--user{
-    font-weight: bold;
+  .message__bubble__user{
+    color: $app-secondary-fontcolor;
+  }
+  .message__bubble__top{
+    display: flex;
+    flex-direction: row;
+
+    padding-bottom: 10px;
+
   }
 }
