@@ -1,15 +1,20 @@
-<div class="container">
-  <div class="form--container">
-    <form action="">
-      <label for="name">Identifiant:</label><br>
-      <input type="text" id="name" name="name"><br>
-      <label for="pwd">Mot de passe</label><br>
-      <input type="password" id="pwd" name="pwd" ><br><br>
-      <input type="submit" value="Se connecter">
-    </form>
-  </div>
-  <div class="link-container">
-    <a href="" class="link">S'inscrire</a>
-    <a href="" class="link">Mot de passe oublié</a>
-  </div>
+<div class="form_card">
+  <h1>Créer un compte</h1>
+  <form [formGroup]="loginForm">
+
+    <div class="form_group">
+      <label for="email">Email :</label>
+      <input type="email" id="email" formControlName="email">
+    </div>
+
+    <div class="form_group">
+      <label for="password">Mot de passe :</label>
+      <input type="password" id="password" formControlName="password">
+    </div>
+
+    <div class="action_button">
+      <button type="submit" (click)="onSubmit()" [disabled]="loginForm.invalid">Se connecter</button>
+    </div>
+
+  </form>
 </div>
