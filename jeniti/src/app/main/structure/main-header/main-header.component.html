@@ -1,3 +1,3 @@
 <div class="container" *ngIf="user$ | async as user">
-  <span>{{ user.current_channel.name }} </span>
+  <span *ngIf="user.current_channel">{{ user.current_channel.name }} </span>
 </div>
