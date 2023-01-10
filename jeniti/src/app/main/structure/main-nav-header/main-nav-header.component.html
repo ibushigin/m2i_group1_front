@@ -1,9 +1,15 @@
-<div class="navhead__icon__container">
-  <app-btn route="addChannel" >
-    <app-icon type="PLUS" class="navheader__icon"></app-icon>
-  </app-btn>
-  <app-btn route="logout">
-    <app-icon type="OUT" class="navheader__icon"></app-icon>
-  </app-btn>
+<div class="navheader__icon__container">
+
+  <div class="navheader__leftside">
+    <app-icon type="NINJA" class="navheader__icon"></app-icon>
+  </div>
+
+  <div class="navheader__rightside">
+    <p>{{user.username}}</p>
+    <app-btn route="logout">
+      <app-icon type="OUT" class="navheader__icon"></app-icon>
+    </app-btn>
+  </div>
+
 
 </div>

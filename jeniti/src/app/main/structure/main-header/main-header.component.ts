@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import {User} from "../../../core/models/users";
+import {AuthService} from "../../../core/services/auth.service";
 
 @Component({
   selector: 'app-main-header',
@@ -6,13 +8,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./main-header.component.scss'],
 })
 export class MainHeaderComponent {
-  user!: any;
+  user: User;
 
-  constructor() {
-    this.user = localStorage.getItem('currentUser');
-    console.log(typeof this.user);
-    if (this.user) {
-      this.user = JSON.parse(this.user);
-    }
+  constructor(private authService: AuthService) {
+    this.user = this.authService.getSessionUser();
   }
 }
