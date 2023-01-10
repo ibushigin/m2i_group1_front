@@ -6,7 +6,8 @@
   .nav__container {
     position:fixed;
     top:0;
-    width: 300px;
+    width: 299px;
+    border-right: 1px solid $app-primary-light;
 
 
     .nav__header {
@@ -20,6 +21,7 @@
     .main__nav {
       height: calc(100vh - 80px);
       background: $app-primary-dark;
+
     }
   }
 
