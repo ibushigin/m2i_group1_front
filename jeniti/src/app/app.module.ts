@@ -24,6 +24,7 @@ import { AuthService } from './core/services/auth.service';
 })
 export class AppModule {
   constructor(private auth: AuthService) {
+    this.auth.refreshSessionUser().subscribe();
     registerLocaleData(fr.default);
   }
 }
