@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { Message } from 'src/app/core/models/messages';
 import { User } from 'src/app/core/models/users';
+import { AuthService } from 'src/app/core/services/auth.service';
 import { MessagesService } from 'src/app/core/services/messages.service';
 
 @Component({
@@ -10,20 +12,20 @@ import { MessagesService } from 'src/app/core/services/messages.service';
 })
 export class MainMessagesFormComponent {
   contentInput!: string;
-  idInput: number = 1;
+  user$!: BehaviorSubject<User>;
 
-  constructor(private mService: MessagesService) {}
+  constructor(private mService: MessagesService, private auth: AuthService) {}
 
   onSubmit(): void {
     if (this.contentInput) {
-      let message: Message = new Message();
-      let user: User = new User();
-      user.id = this.idInput;
-      message.content = this.contentInput;
-      message.user_id = user;
-
-      this.mService.addMessage(message);
-      this.contentInput = '';
+      console.log(this.auth.getSessionUser());
+      this.auth.refreshSessionUser().subscribe((user) => {
+        let message: Message = new Message();
+        message.content = this.contentInput;
+        message.user_id = user;
+        this.mService.addMessage(message);
+        this.contentInput = '';
+      });
     }
   }
 }
