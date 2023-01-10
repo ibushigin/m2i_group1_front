@@ -41,10 +41,12 @@ export class MessagesBubbleComponent implements OnInit {
   deleteMessage(idMessage: number): void {
     this.mService.deleteMessagebyId(idMessage);
   }
+
   hide(){
     this.msgHidden = true;
     this.editHidden = false;
   }
+
   onSubmit(){
     this.msgHidden = false;
     this.editHidden = true;
