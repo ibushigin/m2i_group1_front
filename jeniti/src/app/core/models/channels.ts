@@ -3,4 +3,5 @@ export class Channel {
   public created_at!: Date;
   public description!: string;
   public name!: string;
+  public isActive!: boolean;
 }

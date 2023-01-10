@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject, map, Observable, tap } from 'rxjs';
 import { env } from 'src/app/environ/env';
 import { Channel } from '../models/channels';
 
@@ -20,6 +20,21 @@ export class ChannelsService {
     this.http
       .get<Channel[]>(env.urlChannels)
       .subscribe((data) => this.bChannels$.next(data));
+  }
+
+  allChannelInactive(): void {
+    this.http
+      .get<Channel[]>(env.urlChannels)
+      .pipe(
+        map((channels) => {
+          console.log(channels);
+          for (let channel of channels) {
+            channel.isActive = false;
+          }
+          this.bChannels$.next(channels);
+        })
+      )
+      .subscribe();
   }
 
   getChannelById(channelId: number) {

@@ -79,32 +79,15 @@ export class AuthService {
         )
         .pipe(
           tap({
-            next: (data) => this.bSessionUser$.next(data),
+            next: (data) => {
+              this.bSessionUser$.next(data);
+            },
             error: (err) =>
               console.log("Impossible de recup l'user de session"),
           })
         );
     }
+    console.log("Impossible de refresh l'user");
     return new Observable<User>();
-
-    // let sessionUser: User = new User();
-    // let sessionCurrentChannel: Channel = new Channel();
-    // if (user) {
-    //   const obj: User = JSON.parse(user);
-
-    //   sessionUser.id = obj.id;
-    //   sessionUser.email = obj.email;
-    //   sessionUser.password = obj.password;
-    //   sessionUser.username = obj.username;
-    //   sessionUser.isLogged = obj.isLogged;
-
-    //   sessionCurrentChannel.id = obj.current_channel.id;
-    //   sessionCurrentChannel.name = obj.current_channel.name;
-    //   sessionCurrentChannel.created_at = obj.current_channel.created_at;
-    //   sessionCurrentChannel.description = obj.current_channel.description;
-
-    //   sessionUser.current_channel = sessionCurrentChannel;
-    // }
-    // return sessionUser;
   }
 }

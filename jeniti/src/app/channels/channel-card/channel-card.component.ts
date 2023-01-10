@@ -15,40 +15,32 @@ export class ChannelCardComponent implements OnInit {
   @Input() usersOnChannel!: User[];
   public hidden: boolean;
   public route!: string;
-  public isActive$!: BehaviorSubject<Boolean>;
+  public isActive: boolean;
   public sessionUser$!: BehaviorSubject<User>;
+  public channels$!: BehaviorSubject<Channel[]>;
 
   constructor(private cService: ChannelsService, private auth: AuthService) {
     this.hidden = true;
-    this.isActive$ = new BehaviorSubject<Boolean>(false);
+    this.isActive = false;
+    this.channels$ = cService.bChannels$;
     this.sessionUser$ = auth.bSessionUser$;
   }
 
   ngOnInit(): void {
     this.route = `/editChannel/${this.channel.id}`;
-    this.auth.refreshSessionUser().subscribe((data) => {
-      if (data.current_channel.id == this.channel.id) {
-        console.log('ok');
-        this.isActive$.next(true);
-      } else {
-        this.isActive$.next(false);
-      }
-    });
   }
 
   deleteChannel(channelId: number): void {
     this.cService.deleteChannelbyId(channelId);
   }
 
-  public hide(): void {
+  public changeToThisChannel(): void {
     this.auth.changeChannel(this.channel.id).subscribe((user) => {
       if (user.current_channel.id == this.channel.id) {
-        this.isActive$.next(true);
-      } else {
-        this.isActive$.next(false);
+        this.cService.allChannelInactive();
+        this.isActive = true;
       }
-
-      this.hidden = !this.hidden;
     });
+    // this.hidden = !this.hidden;
   }
 }
