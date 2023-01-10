@@ -28,7 +28,7 @@ export class PageLoginComponent {
       next: (data) => {
         if (data.isLogged) {
           localStorage.setItem('currentUser', JSON.stringify(data));
-          this.auth.refreshSessionUser();
+          this.auth.refreshSessionUser().subscribe();
           this.route.navigate(['/main']);
         } else {
           console.log('TU NE PASSES PAS');

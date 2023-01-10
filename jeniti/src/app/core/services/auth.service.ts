@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { env } from 'src/app/environ/env';
 import { Channel } from '../models/channels';
 import { User } from '../models/users';
@@ -56,19 +56,23 @@ export class AuthService {
     });
   }
 
-  refreshSessionUser(): void {
+  refreshSessionUser(): Observable<User> {
     const user: string | null = localStorage.getItem('currentUser');
     if (user) {
       const storageUser: User = JSON.parse(user);
-      this.http
+      return this.http
         .get<User>(
           `${env.urlUsersSession}/${storageUser.id}/${storageUser.sessionId}`
         )
-        .subscribe({
-          next: (data) => this.bSessionUser$.next(data),
-          error: (err) => console.log("Impossible de recup l'user de session"),
-        });
+        .pipe(
+          tap({
+            next: (data) => this.bSessionUser$.next(data),
+            error: (err) =>
+              console.log("Impossible de recup l'user de session"),
+          })
+        );
     }
+    return new Observable<User>();
 
     // let sessionUser: User = new User();
     // let sessionCurrentChannel: Channel = new Channel();
