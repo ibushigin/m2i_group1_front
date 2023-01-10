@@ -4,6 +4,7 @@ import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { env } from 'src/app/environ/env';
 import { Channel } from '../models/channels';
 import { User } from '../models/users';
+import { UserSession } from '../models/userSession';
 import { UsersService } from './users.service';
 
 @Injectable({
@@ -22,16 +23,16 @@ export class AuthService {
   }
 
   logout() {
-    // this.http.post<User>(env.urlLogout, user: User).subscribe({
-    //   next: (data) => {
-    //     localStorage.clear();
-    //     this.uService.refresh();
-    //   },
-    //   error: (err) => {
-    //     console.log('logout raté');
-    //   },
-    // });
     console.log('logout');
+    this.refreshSessionUser().subscribe((data) => {
+      console.log(data);
+      let currentUserSession: UserSession = new UserSession();
+      currentUserSession.id = data.id;
+      currentUserSession.sessionId = data.sessionId;
+      this.http
+        .post(env.urlLogout, currentUserSession)
+        .subscribe(() => localStorage.clear());
+    });
   }
 
   getSessionUser() {
