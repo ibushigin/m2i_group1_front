@@ -2,7 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { env } from 'src/app/environ/env';
+import { ChannelModif } from '../models/channelModif';
 import { Channel } from '../models/channels';
+import { UserModifChannel } from '../models/userModifChannel';
 import { User } from '../models/users';
 import { UserSession } from '../models/userSession';
 import { UsersService } from './users.service';
@@ -23,14 +25,26 @@ export class AuthService {
   }
 
   logout() {
-    this.refreshSessionUser().subscribe((data) => {
+    this.refreshSessionUser().subscribe((user) => {
       let currentUserSession: UserSession = new UserSession();
-      currentUserSession.id = data.id;
-      currentUserSession.sessionId = data.sessionId;
+      currentUserSession.id = user.id;
+      currentUserSession.sessionId = user.sessionId;
       this.http
         .post(env.urlLogout, currentUserSession)
         .subscribe(() => localStorage.clear());
     });
+  }
+
+  changeChannel(idChannel: number) {
+    let chan: ChannelModif = new ChannelModif();
+    chan.id = idChannel;
+    let uMofif: UserModifChannel = new UserModifChannel();
+    uMofif.current_channel = chan;
+    return this.refreshSessionUser().pipe(
+      tap((user) => {
+        this.http.put<User>(`${env.urlUsers}/${user.id}`, uMofif).subscribe();
+      })
+    );
   }
 
   getSessionUser() {

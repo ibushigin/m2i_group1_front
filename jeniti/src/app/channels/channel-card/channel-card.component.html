@@ -1,4 +1,4 @@
-<div class="container__channel" (click)="hide()" [ngClass]="{'active': isActive}">
+<div class="container__channel" (click)="hide()" [ngClass]="{'active': isActive$ | async}">
   <app-channel-solo [channel]="channel"></app-channel-solo>
 
   <div class="div_users_channel" [ngClass]="{'hidden' : hidden}">

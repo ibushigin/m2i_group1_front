@@ -15,12 +15,12 @@ export class ChannelCardComponent implements OnInit {
   @Input() usersOnChannel!: User[];
   public hidden: boolean;
   public route!: string;
-  public isActive!: boolean;
+  public isActive$!: BehaviorSubject<Boolean>;
   public sessionUser$!: BehaviorSubject<User>;
 
   constructor(private cService: ChannelsService, private auth: AuthService) {
     this.hidden = true;
-    this.isActive = false;
+    this.isActive$ = new BehaviorSubject<Boolean>(false);
     this.sessionUser$ = auth.bSessionUser$;
   }
 
@@ -29,7 +29,9 @@ export class ChannelCardComponent implements OnInit {
     this.auth.refreshSessionUser().subscribe((data) => {
       if (data.current_channel.id == this.channel.id) {
         console.log('ok');
-        this.isActive = true;
+        this.isActive$.next(true);
+      } else {
+        this.isActive$.next(false);
       }
     });
   }
@@ -39,6 +41,14 @@ export class ChannelCardComponent implements OnInit {
   }
 
   public hide(): void {
-    this.hidden = !this.hidden;
+    this.auth.changeChannel(this.channel.id).subscribe((user) => {
+      if (user.current_channel.id == this.channel.id) {
+        this.isActive$.next(true);
+      } else {
+        this.isActive$.next(false);
+      }
+
+      this.hidden = !this.hidden;
+    });
   }
 }
