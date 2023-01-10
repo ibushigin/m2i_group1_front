@@ -8,14 +8,21 @@
           <app-btn (click)="deleteMessage(message.id)">
             <app-icon type="DELETE"></app-icon>
           </app-btn>
-          <app-btn [route]="route">
+          <app-btn (click)="hide()">
             <app-icon type="EDIT"></app-icon>
           </app-btn>
         </div>
       </div>
     </div>
+    <p class="message__content__content" [ngClass]="{'hidden' : msgHidden}">{{ message.content }} </p>
+    <div >
+      <form (ngSubmit)="onSubmit()" *ngIf="message$ | async as message" [ngClass]="{'hidden' : editHidden}">
+        <input  id="message__content__input" class="message__content__edit" [(ngModel)]="contentInput" type="text" [ngModelOptions]="{standalone: true}"/>
+        <button type="submit" style="display: none"></button>
+      </form>
+    </div>
 
-    <p class="message__content__content">{{ message.content }} </p>
-    <input class="message__content__edit" type="text" value="{{message.content}}"/>
+
+
   </div>
 </div>
