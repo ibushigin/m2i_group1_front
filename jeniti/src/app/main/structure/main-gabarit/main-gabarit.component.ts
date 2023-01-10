@@ -1,4 +1,4 @@
-import {AfterViewInit, Component} from '@angular/core';
+import {AfterViewChecked, Component, ElementRef, ViewChild} from '@angular/core';
 
 
 @Component({
@@ -6,6 +6,11 @@ import {AfterViewInit, Component} from '@angular/core';
   templateUrl: './main-gabarit.component.html',
   styleUrls: ['./main-gabarit.component.scss']
 })
-export class MainGabaritComponent{
+export class MainGabaritComponent implements AfterViewChecked{
+  @ViewChild('msgScroll') msgScroll!: ElementRef;
+
+  ngAfterViewChecked(){
+    this.msgScroll.nativeElement.scrollTop = this.msgScroll.nativeElement.scrollHeight;
+  }
 
 }

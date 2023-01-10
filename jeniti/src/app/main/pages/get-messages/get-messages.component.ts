@@ -1,4 +1,4 @@
-import {AfterViewInit, Component} from '@angular/core';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-get-messages',
@@ -6,5 +6,6 @@ import {AfterViewInit, Component} from '@angular/core';
   styleUrls: ['./get-messages.component.scss']
 })
 export class GetMessagesComponent {
+
 
 }
