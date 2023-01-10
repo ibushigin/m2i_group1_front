@@ -1,14 +1,17 @@
 <div class="message_content">
   <div class="message__bubble">
     <div class="message__bubble__top">
-      <span class="message__bubble__user">{{message.user_id.username}} (envoyé {{ message.created_at | date: 'short' }})</span>
-      <div class="message__bubble__icons">
-        <app-btn (click)="deleteMessage(message.id)">
-          <app-icon type="DELETE"></app-icon>
-        </app-btn>
-        <app-btn [route]="route">
-          <app-icon type="EDIT"></app-icon>
-        </app-btn>
+      <span class="message__bubble__user">{{message.user_id.username}} (envoyé {{ message.created_at | date: 'short'
+        }})</span>
+      <div *ngIf="sessionUser$ | async as user">
+        <div class="message__bubble__icons" *ngIf="user.id == message.user_id.id">
+          <app-btn (click)="deleteMessage(message.id)">
+            <app-icon type="DELETE"></app-icon>
+          </app-btn>
+          <app-btn [route]="route">
+            <app-icon type="EDIT"></app-icon>
+          </app-btn>
+        </div>
       </div>
     </div>
 
