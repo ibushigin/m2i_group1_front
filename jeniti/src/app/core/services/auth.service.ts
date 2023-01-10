@@ -16,8 +16,8 @@ export class AuthService {
     return this.http.post<User>(env.urlLogin, credential);
   }
 
-  logout(user: User) {
-    this.http.post<User>(env.urlLogout, user).subscribe({
+  logout() {
+    this.http.post<User>(env.urlLogout, this.getSessionUser()).subscribe({
       next: (data) => {
         localStorage.clear();
         this.uService.refresh();
