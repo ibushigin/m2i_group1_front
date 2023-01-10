@@ -23,9 +23,7 @@ export class AuthService {
   }
 
   logout() {
-    console.log('logout');
     this.refreshSessionUser().subscribe((data) => {
-      console.log(data);
       let currentUserSession: UserSession = new UserSession();
       currentUserSession.id = data.id;
       currentUserSession.sessionId = data.sessionId;
