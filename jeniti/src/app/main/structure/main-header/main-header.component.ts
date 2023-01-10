@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import {User} from "../../../core/models/users";
-import {AuthService} from "../../../core/services/auth.service";
+import { BehaviorSubject } from 'rxjs';
+import { User } from '../../../core/models/users';
+import { AuthService } from '../../../core/services/auth.service';
 
 @Component({
   selector: 'app-main-header',
@@ -8,9 +9,9 @@ import {AuthService} from "../../../core/services/auth.service";
   styleUrls: ['./main-header.component.scss'],
 })
 export class MainHeaderComponent {
-  user: User;
+  user$!: BehaviorSubject<User>;
 
   constructor(private authService: AuthService) {
-    this.user = this.authService.getSessionUser();
+    this.user$ = this.authService.bSessionUser$;
   }
 }

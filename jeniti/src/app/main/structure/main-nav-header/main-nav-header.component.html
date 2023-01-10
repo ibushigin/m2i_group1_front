@@ -5,7 +5,7 @@
   </div>
 
   <div class="navheader__rightside">
-    <p>{{user.username}}</p>
+    <p *ngIf="user$ | async as user">{{user.username}}</p>
     <app-btn route="logout">
       <app-icon type="OUT" class="navheader__icon"></app-icon>
     </app-btn>
