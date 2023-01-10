@@ -1,5 +1,10 @@
 <app-main-gabarit>
-  <app-btn route="/main">Retour aux messages</app-btn>
+  <div class="form__return">
+    <app-btn route="/main">
+      <app-icon type="BACK"></app-icon>
+    </app-btn>
+  </div>
+
   <div class="form_card">
     <h1>Créer un nouveau salon</h1>
     <form [formGroup]="channelForm">
