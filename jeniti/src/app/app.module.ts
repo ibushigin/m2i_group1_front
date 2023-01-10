@@ -8,7 +8,6 @@ import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { AuthService } from './core/services/auth.service';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,8 +22,7 @@ import { AuthService } from './core/services/auth.service';
   bootstrap: [AppComponent],
 })
 export class AppModule {
-  constructor(private auth: AuthService) {
-    this.auth.refreshSessionUser().subscribe();
+  constructor() {
     registerLocaleData(fr.default);
   }
 }

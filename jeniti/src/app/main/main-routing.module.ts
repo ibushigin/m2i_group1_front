@@ -7,7 +7,6 @@ import { EditMessageComponent } from './pages/edit-message/edit-message.componen
 import { GetMessagesComponent } from './pages/get-messages/get-messages.component';
 
 const routes: Routes = [
-  { path: '', component: GetMessagesComponent, canActivate: [AuthGuard] },
   {
     path: 'addChannel',
     component: AddChannelComponent,
@@ -23,6 +22,7 @@ const routes: Routes = [
     component: EditChannelComponent,
     canActivate: [AuthGuard],
   },
+  { path: ':id', component: GetMessagesComponent, canActivate: [AuthGuard] },
 ];
 
 @NgModule({

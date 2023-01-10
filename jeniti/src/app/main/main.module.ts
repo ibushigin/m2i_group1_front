@@ -11,7 +11,6 @@ import { EditMessageComponent } from './pages/edit-message/edit-message.componen
 import { GetMessagesComponent } from './pages/get-messages/get-messages.component';
 import { MainGabaritComponent } from './structure/main-gabarit/main-gabarit.component';
 import { MainHeaderComponent } from './structure/main-header/main-header.component';
-import { MainMessagesContainerComponent } from './structure/main-messages-container/main-messages-container.component';
 import { MainMessagesFormComponent } from './structure/main-messages-form/main-messages-form.component';
 import { MainNavHeaderComponent } from './structure/main-nav-header/main-nav-header.component';
 import { MainNavComponent } from './structure/main-nav/main-nav.component';
@@ -19,7 +18,6 @@ import { MainNavComponent } from './structure/main-nav/main-nav.component';
 @NgModule({
   declarations: [
     MainHeaderComponent,
-    MainMessagesContainerComponent,
     MainMessagesFormComponent,
     MainNavComponent,
     MainNavHeaderComponent,

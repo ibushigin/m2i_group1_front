@@ -32,7 +32,7 @@ export class EditMessageComponent {
       newMessage.id = this.idMessage;
       newMessage.content = this.contentInput;
       this.mService
-        .updateMessage(newMessage)
+        .updateMessageOnChannelByIdChannel(newMessage, 1)
         .subscribe(() => this.router.navigateByUrl('/main'));
     }
   }

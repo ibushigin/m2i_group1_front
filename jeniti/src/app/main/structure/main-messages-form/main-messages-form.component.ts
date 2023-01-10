@@ -18,12 +18,13 @@ export class MainMessagesFormComponent {
 
   onSubmit(): void {
     if (this.contentInput) {
-      console.log(this.auth.getSessionUser());
       this.auth.refreshSessionUser().subscribe((user) => {
         let message: Message = new Message();
         message.content = this.contentInput;
         message.user_id = user;
-        this.mService.addMessage(message);
+        this.mService
+          .addMessageOnChannelByIdChannel(message, user.current_channel.id)
+          .subscribe();
         this.contentInput = '';
       });
     }

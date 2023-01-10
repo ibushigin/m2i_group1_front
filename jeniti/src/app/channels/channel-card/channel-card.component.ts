@@ -28,7 +28,6 @@ export class ChannelCardComponent implements OnInit {
     this.route = `/editChannel/${this.channel.id}`;
     this.auth.refreshSessionUser().subscribe((data) => {
       if (data.current_channel.id == this.channel.id) {
-        console.log('ok');
         this.isActive$.next(true);
       } else {
         this.isActive$.next(false);
@@ -41,14 +40,13 @@ export class ChannelCardComponent implements OnInit {
   }
 
   public hide(): void {
-    this.auth.changeChannel(this.channel.id).subscribe((user) => {
-      if (user.current_channel.id == this.channel.id) {
-        this.isActive$.next(true);
-      } else {
-        this.isActive$.next(false);
-      }
-
-      this.hidden = !this.hidden;
-    });
+    // this.auth.changeChannel(this.channel.id).subscribe((user) => {
+    //   if (user.current_channel.id == this.channel.id) {
+    //     this.isActive$.next(true);
+    //   } else {
+    //     this.isActive$.next(false);
+    //   }
+    //   this.hidden = !this.hidden;
+    // });
   }
 }

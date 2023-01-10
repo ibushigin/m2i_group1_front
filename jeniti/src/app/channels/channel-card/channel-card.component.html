@@ -1,16 +1,18 @@
-<div class="container__channel" (click)="hide()" [ngClass]="{'active': isActive$ | async}">
-  <app-channel-solo [channel]="channel"></app-channel-solo>
+<div *ngIf="sessionUser$ | async as user">
+  <div class="container__channel" [ngClass]="{'active':  user.current_channel.id == channel.id}">
+    <app-channel-solo [channel]="channel"></app-channel-solo>
 
-  <div class="div_users_channel" [ngClass]="{'hidden' : hidden}">
-    <p>Liste des membres:</p>
-    <app-users-list></app-users-list>
-    <div class="channel__card__icons" *ngIf="channel.id != 1">
-      <app-btn (click)="deleteChannel(channel.id)">
-        <app-icon type="DELETE"></app-icon>
-      </app-btn>
-      <app-btn [route]="route">
-        <app-icon type="EDIT"></app-icon>
-      </app-btn>
+    <div class="div_users_channel" [ngClass]="{'hidden' : hidden}">
+      <p>Liste des membres:</p>
+      <app-users-list></app-users-list>
+      <div class="channel__card__icons" *ngIf="channel.id != 1">
+        <app-btn (click)="deleteChannel(channel.id)">
+          <app-icon type="DELETE"></app-icon>
+        </app-btn>
+        <app-btn [route]="route">
+          <app-icon type="EDIT"></app-icon>
+        </app-btn>
+      </div>
     </div>
   </div>
 </div>

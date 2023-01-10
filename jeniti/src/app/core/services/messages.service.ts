@@ -13,34 +13,43 @@ export class MessagesService {
 
   constructor(private http: HttpClient) {
     this.bMessages$ = new BehaviorSubject<Message[]>([]);
-    this.refresh();
+    // this.refresh();
   }
 
-  refresh(): void {
-    this.http
-      .get<Message[]>(env.urlMessages)
-      .subscribe((data) => this.bMessages$.next(data));
-  }
+  // refresh(): void {
+  //   this.http
+  //     .get<Message[]>(env.urlMessages)
+  //     .subscribe((data) => this.bMessages$.next(data));
+  // }
 
   getMessageById(messageId: number): Observable<Message> {
     return this.http.get<Message>(`${env.urlMessages}/${messageId}`);
   }
 
-  deleteMessagebyId(messageId: number) {
+  getMessageByChannelId(channelId: number) {
+    return this.http
+      .get<Message[]>(`${env.urlMessages}/channel/${channelId}`)
+      .pipe(tap((data) => this.bMessages$.next(data)));
+  }
+
+  deleteMessageOnChanellByIdChannel(messageId: number, channelId: number) {
     return this.http
       .delete(`${env.urlMessages}/${messageId}`)
-      .subscribe(() => this.refresh());
+      .pipe(tap(() => this.getMessageByChannelId(channelId).subscribe()));
   }
 
-  addMessage(message: Message) {
-    this.http
+  addMessageOnChannelByIdChannel(message: Message, channelId: number) {
+    return this.http
       .post<Message>(env.urlMessages, message)
-      .subscribe(() => this.refresh());
+      .pipe(tap(() => this.getMessageByChannelId(channelId).subscribe()));
   }
 
-  updateMessage(message: Message): Observable<Message> {
+  updateMessageOnChannelByIdChannel(
+    message: Message,
+    channelId: number
+  ): Observable<Message> {
     return this.http
       .put<Message>(`${env.urlMessages}/${message.id}`, message)
-      .pipe(tap(() => this.refresh()));
+      .pipe(tap(() => this.getMessageByChannelId(channelId).subscribe()));
   }
 }

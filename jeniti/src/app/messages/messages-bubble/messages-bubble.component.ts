@@ -1,10 +1,10 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {BehaviorSubject, Observable, tap} from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { Message } from 'src/app/core/models/messages';
 import { User } from 'src/app/core/models/users';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { MessagesService } from 'src/app/core/services/messages.service';
-
 
 @Component({
   selector: 'app-messages-bubble',
@@ -23,7 +23,9 @@ export class MessagesBubbleComponent implements OnInit {
 
   constructor(
     private mService: MessagesService,
-    private auth: AuthService) {
+    private auth: AuthService,
+    private aRoute: ActivatedRoute
+  ) {
     this.sessionUser$ = this.auth.bSessionUser$;
   }
 
@@ -31,30 +33,34 @@ export class MessagesBubbleComponent implements OnInit {
     this.idMessage = this.message.id;
     this.message$ = this.mService
       .getMessageById(this.idMessage)
-      .pipe(tap((data)=>
-        (this.contentInput = data.content)
-      ));
-
-
+      .pipe(tap((data) => (this.contentInput = data.content)));
   }
 
   deleteMessage(idMessage: number): void {
-    this.mService.deleteMessagebyId(idMessage);
+    this.mService
+      .deleteMessageOnChanellByIdChannel(idMessage, this.message.channel_id.id)
+      .subscribe();
   }
 
-  hide(){
+  hide() {
     this.msgHidden = true;
     this.editHidden = false;
   }
 
-  onSubmit(){
+  onSubmit() {
     this.msgHidden = false;
     this.editHidden = true;
-    if(this.contentInput){
+    if (this.contentInput) {
       let newMessage: Message = new Message();
       newMessage.id = this.idMessage;
       newMessage.content = this.contentInput;
-      this.mService.updateMessage(newMessage).subscribe();
+
+      this.mService
+        .updateMessageOnChannelByIdChannel(
+          newMessage,
+          this.message.channel_id.id
+        )
+        .subscribe();
     }
   }
 }

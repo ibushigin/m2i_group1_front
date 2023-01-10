@@ -25,6 +25,6 @@ export class PageRegisterComponent {
   onSubmit() {
     this.uService
       .addUser(this.registerForm.value)
-      .subscribe(() => this.router.navigateByUrl('/main'));
+      .subscribe(() => this.router.navigate(['/']));
   }
 }

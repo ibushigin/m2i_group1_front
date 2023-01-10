@@ -3,7 +3,6 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable, tap } from 'rxjs';
 import { env } from 'src/app/environ/env';
 import { ChannelModif } from '../models/channelModif';
-import { Channel } from '../models/channels';
 import { UserModifChannel } from '../models/userModifChannel';
 import { User } from '../models/users';
 import { UserSession } from '../models/userSession';
@@ -47,27 +46,27 @@ export class AuthService {
     );
   }
 
-  getSessionUser() {
-    let responseUser: User;
-    let responseCurrent_channel: Channel;
-    this.bSessionUser$.subscribe((data) => {
-      responseUser.id = data.id;
-      responseUser.email = data.email;
-      responseUser.password = data.password;
-      responseUser.username = data.username;
-      responseUser.isLogged = data.isLogged;
-      responseUser.sessionId = data.sessionId;
+  // getSessionUser() {
+  //   let responseUser: User;
+  //   let responseCurrent_channel: Channel;
+  //   this.bSessionUser$.subscribe((data) => {
+  //     responseUser.id = data.id;
+  //     responseUser.email = data.email;
+  //     responseUser.password = data.password;
+  //     responseUser.username = data.username;
+  //     responseUser.isLogged = data.isLogged;
+  //     responseUser.sessionId = data.sessionId;
 
-      responseCurrent_channel.id = data.current_channel.id;
-      responseCurrent_channel.name = data.current_channel.name;
-      responseCurrent_channel.created_at = data.current_channel.created_at;
-      responseCurrent_channel.description = data.current_channel.description;
+  //     responseCurrent_channel.id = data.current_channel.id;
+  //     responseCurrent_channel.name = data.current_channel.name;
+  //     responseCurrent_channel.created_at = data.current_channel.created_at;
+  //     responseCurrent_channel.description = data.current_channel.description;
 
-      responseUser.current_channel = responseCurrent_channel;
+  //     responseUser.current_channel = responseCurrent_channel;
 
-      return responseUser;
-    });
-  }
+  //     return responseUser;
+  //   });
+  // }
 
   refreshSessionUser(): Observable<User> {
     const user: string | null = localStorage.getItem('currentUser');
@@ -86,25 +85,5 @@ export class AuthService {
         );
     }
     return new Observable<User>();
-
-    // let sessionUser: User = new User();
-    // let sessionCurrentChannel: Channel = new Channel();
-    // if (user) {
-    //   const obj: User = JSON.parse(user);
-
-    //   sessionUser.id = obj.id;
-    //   sessionUser.email = obj.email;
-    //   sessionUser.password = obj.password;
-    //   sessionUser.username = obj.username;
-    //   sessionUser.isLogged = obj.isLogged;
-
-    //   sessionCurrentChannel.id = obj.current_channel.id;
-    //   sessionCurrentChannel.name = obj.current_channel.name;
-    //   sessionCurrentChannel.created_at = obj.current_channel.created_at;
-    //   sessionCurrentChannel.description = obj.current_channel.description;
-
-    //   sessionUser.current_channel = sessionCurrentChannel;
-    // }
-    // return sessionUser;
   }
 }
