@@ -30,9 +30,13 @@ export class PageLoginComponent {
       next: (user) => {
         if (user.isLogged) {
           localStorage.setItem('currentUser', JSON.stringify(user));
-          this.mService.getMessageByChannelId(user.current_channel.id);
-          this.auth.refreshSessionUser().subscribe();
-          this.route.navigate([`/${user.current_channel.id}`]);
+          this.auth.refreshSessionUser().subscribe((user) =>
+            this.mService
+              .getMessageByChannelId(user.current_channel.id)
+              .subscribe((messages) => {
+                this.route.navigate([`/${user.current_channel.id}`]);
+              })
+          );
         } else {
           console.log('TU NE PASSES PAS');
         }
