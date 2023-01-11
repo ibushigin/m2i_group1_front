@@ -1,1 +1,1 @@
-<p><app-icon type="ASTRONAUT" [ngClass]="{'connected':user.isLogged }"></app-icon> {{ user.username }}</p>
+<p *ngIf="user"><app-icon type="ASTRONAUT" [ngClass]="{'connected':user.isLogged }"></app-icon> {{ user.username }}</p>
