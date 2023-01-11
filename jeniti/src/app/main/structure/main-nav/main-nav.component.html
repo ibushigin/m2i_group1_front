@@ -1,0 +1,6 @@
+<div class="navmain__container">
+  <app-channel-card *ngFor="let channel of channels$ | async" [channel]="channel"></app-channel-card>
+  <app-btn route="/main/addChannel">
+    <app-icon type="PLUS" class="navheader__icon"></app-icon>
+  </app-btn>
+</div>

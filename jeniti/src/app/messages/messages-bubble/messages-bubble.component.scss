@@ -1,0 +1,67 @@
+@import "src/stylings/theme";
+.message_content {
+  background-color: $app-primary-light;
+  display: flex;
+  padding: 10px 10px;
+  margin: 15px 30px;
+  width: 90%;
+  border-radius: 15px;
+
+  button{
+    border: none;
+    background-color: transparent;
+    color: $app-secondary-fontcolor;
+
+  }
+  button:hover{
+    cursor: pointer;
+    color: $app-primary-fontcolor;
+  }
+
+  .message__bubble {
+    color:$app-primary-fontcolor;
+    display: flex;
+    flex-direction: column;
+
+
+  }
+  .message__bubble__date{
+    color: $app-secondary-fontcolor;
+  }
+  .message__bubble__icons{
+    color: $app-secondary-fontcolor;
+
+  }
+  .message__bubble__user{
+    color: $app-secondary-fontcolor;
+  }
+  .message__bubble__top{
+    display: flex;
+    flex-direction: row;
+
+    padding-bottom: 10px;
+
+  }
+  #message__content__input{
+    font: $primary-font;
+  }
+  .message__content__content{
+    font-size: 1.5em;
+
+  }
+  .message__content__edit{
+    font-size: 1.5em;
+    color: inherit;
+    background-color: inherit;
+    border: 1px solid $app-secondary-fontcolor;
+    border-radius: 10px;
+    padding-left: 5px;
+    outline: none;
+    font: $primary-font;
+
+  }
+  .hidden{
+    display: none;
+  }
+}
+

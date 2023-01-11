@@ -1,0 +1,23 @@
+<div class="main__container">
+
+  <div class="nav__container" id="nav__container">
+    <div class="nav__header">
+      <app-main-nav-header></app-main-nav-header>
+    </div>
+    <div class="main__nav">
+      <app-main-nav></app-main-nav>
+    </div>
+  </div>
+
+  <div class="messages__container">
+    <div class="message__header">
+      <app-main-header></app-main-header>
+    </div>
+    <div class="messages__area" #msgScroll>
+      <ng-content></ng-content>
+    </div>
+    <div class="messages__form">
+      <app-main-messages-form></app-main-messages-form>
+    </div>
+  </div>
+</div>

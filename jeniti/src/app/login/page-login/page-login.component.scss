@@ -1,0 +1,21 @@
+@import "src/app/main/pages/add-channel/add-channel.component";
+.login__links{
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 2em;
+    a{
+      color: $app-secondary-fontcolor;
+      text-decoration: none;
+    }
+    a:hover{
+      color: $app-primary-fontcolor;
+    }
+}
+.form__container{
+  display: grid;
+  height: 100vh;
+}
+.form_card{
+  place-self: center;
+}

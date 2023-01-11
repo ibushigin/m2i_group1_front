@@ -1,0 +1,8 @@
+<div class="navheader__icon__container">
+    <div class="navheader__rightside">
+    <p *ngIf="user$ | async as user">{{user.username}}</p>
+    <app-btn route="logout">
+      <app-icon type="OUT" class="navheader__icon"></app-icon>
+    </app-btn>
+  </div>
+</div>

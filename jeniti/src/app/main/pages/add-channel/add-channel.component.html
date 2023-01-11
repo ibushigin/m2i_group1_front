@@ -1,0 +1,30 @@
+<app-main-gabarit>
+  <div class="form__return" *ngIf="route">
+    <app-btn [route]="route">
+      <app-icon type="BACK"></app-icon>
+    </app-btn>
+  </div>
+
+  <div class="form_card">
+    <h1>Créer un nouveau salon</h1>
+    <form [formGroup]="channelForm">
+      <div class="form_group">
+        <label for="nameInput">Nom du salon</label>
+        <input type="text" id="nameInput" formControlName="name" placeholder="Entrer un nom de salon">
+      </div>
+
+      <div class="form_group">
+        <label for="descriptionInput">Description</label>
+        <input type="text" id="descriptionInput" formControlName="description"
+          placeholder="Entrer une description de salon">
+      </div>
+
+      <div class="action_button">
+        <button type="submit" (click)="onSubmit()" [disabled]="channelForm.invalid">Créer salon</button>
+      </div>
+    </form>
+  </div>
+
+
+
+</app-main-gabarit>

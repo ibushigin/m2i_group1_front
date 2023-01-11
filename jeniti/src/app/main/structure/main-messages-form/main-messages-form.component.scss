@@ -1,0 +1,29 @@
+@import "src/stylings/theme";
+
+input{
+  background-color: $app-primary-light;
+  color: $app-primary-fontcolor;
+  border: none;
+  border-radius: 15px;
+  outline: none;
+  width: 80%;
+  height: 50px;
+  font-size: 1.5em;
+  padding-left: 1em;
+}
+button{
+  cursor: pointer;
+  background-color: $app-primary;
+  color: $app-primary-fontcolor;
+  border: none;
+  font-size: 1.5em;
+  margin-left: 1em;
+  height: 50px;
+}
+.message__form__container{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 80px;
+}
+

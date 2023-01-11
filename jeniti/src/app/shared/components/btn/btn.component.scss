@@ -1,0 +1,10 @@
+@import "src/stylings/theme";
+button{
+  border: none;
+  background-color: transparent;
+  color: $app-primary-fontcolor;
+
+}
+button:hover{
+  cursor: pointer;
+}

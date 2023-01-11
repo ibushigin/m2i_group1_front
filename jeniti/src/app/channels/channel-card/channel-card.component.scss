@@ -1,0 +1,56 @@
+@import "src/stylings/theme";
+.hidden {
+  display: none;
+}
+.container__channel {
+  cursor: pointer;
+  padding: 20px 10px;
+  position: relative;
+}
+.container__channel:before{
+  content: "";
+  position: absolute;
+  margin: auto;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  height: 1px;
+  width: 80%;
+  border-bottom: 1px solid $app-secondary-fontcolor;
+}
+
+.container__channel:hover{
+  background-color: $app-primary;
+}
+.div_users_channel{
+  color: $app-secondary-fontcolor;
+}
+.channel__card__icons{
+  display: flex;
+  flex-direction: row-reverse;
+  padding-top: 5px;
+
+}
+.div_users_channel{
+  margin-top: 10px;
+  font-size: 0.9em;
+}
+p{
+  margin-bottom: 5px;
+}
+
+.active {
+  background: $app-primary-light;
+}
+button{
+  border: none;
+  background-color: transparent;
+  color: $app-primary-fontcolor;
+
+}
+button:hover{
+  cursor: pointer;
+  
+}
+
+

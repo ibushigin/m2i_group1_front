@@ -1,0 +1,56 @@
+@import "src/stylings/theme";
+.main__container {
+  height: 100vh;
+  background-color: $app-primary-dark;
+
+  .nav__container {
+    position:fixed;
+    top:0;
+    width: 299px;
+    border-right: 1px solid $app-primary-light;
+
+
+    .nav__header {
+      height: 80px;
+      background: $app-primary;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .main__nav {
+      height: calc(100vh - 80px);
+      background: $app-primary-dark;
+
+    }
+  }
+
+  .messages__container {
+    position: fixed;
+    width: calc(100vw - 300px);
+    left: 300px;
+
+    .message__header {
+      height: 80px;
+      background: $app-primary;
+      color: $app-primary-fontcolor;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .messages__area{
+      height: calc(100vh - 160px);
+      background: $app-primary-darkest;
+      overflow-y: scroll;
+
+    }
+    .messages__form {
+      height: 100px;
+      background: $app-primary;
+
+
+    }
+  }
+}
+

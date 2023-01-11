@@ -1,0 +1,27 @@
+@import "src/stylings/theme";
+
+.navheader__icon__container{
+  display: flex;
+  flex-direction: row;
+  width: 300px;
+  justify-content: space-between;
+
+  .navheader__rightside{
+    color: $app-primary-fontcolor;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 0.5em;
+    p{
+      font-size: 1.5em;
+    }
+  }
+
+  .navheader__icon{
+    font-size: 2em;
+    color: $app-primary-fontcolor;
+  }
+
+}
+
+

@@ -1,0 +1,7 @@
+<form class="message__form__container" (ngSubmit)="onSubmit()">
+  <input type="text" id="contentInput" [(ngModel)]="contentInput" name="contentInput" autocomplete="off"
+    placeholder="Taper un message">
+  <button type="submit">
+    <app-icon type="SEND" ></app-icon>
+  </button>
+</form>

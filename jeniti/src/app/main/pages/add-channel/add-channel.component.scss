@@ -1,0 +1,60 @@
+@import "src/stylings/theme";
+.form_card {
+  width: 50%;
+  margin: 20px auto;
+  padding: 30px 30px;
+  color: $app-primary-fontcolor;
+  background-color: $app-primary;
+  border-radius: 15px;
+  font-size: 1.5em;
+}
+
+.form_group {
+  margin: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+input, textarea {
+  width: 50%;
+  background-color: $app-primary-light;
+  border: none;
+  color: $app-primary-fontcolor;
+  border-radius: 10px;
+  outline: none;
+  padding-left: 10px;
+  height: 50px;
+  font-size: 1.2rem;
+}
+
+.action_buttons {
+  width: 100%;
+}
+
+button {
+  padding: 20px 20px;
+  display: block;
+  margin: 50px auto 20px auto;
+  background-color: $app-primary-light;
+  color: $app-secondary-fontcolor;
+  border: none;
+  border-radius: 15px;
+  font-size: 1em;
+}
+button:hover{
+  cursor: pointer;
+  color: $app-primary-fontcolor;
+}
+h1 {
+  text-align: center;
+}
+.form__return{
+  app-icon{
+    font-size: 3em;
+    color: $app-primary-fontcolor;
+  }
+  margin-top: 10px;
+  margin-left: 10px;
+
+}

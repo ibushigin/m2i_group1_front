@@ -1,0 +1,29 @@
+<div class="message_content">
+  <div class="message__bubble">
+    <div class="message__bubble__top">
+      <span class="message__bubble__user">{{message.user_id.username}} (envoyé {{ message.created_at | date: 'short'
+        }})</span>
+      <div *ngIf="sessionUser$ | async as user">
+        <div class="message__bubble__icons" *ngIf="user.id == message.user_id.id">
+          <button (click)="deleteMessage(message.id)">
+            <app-icon type="DELETE"></app-icon>
+          </button>
+          <button (click)="hide()">
+            <app-icon type="EDIT"></app-icon>
+          </button>
+        </div>
+      </div>
+    </div>
+    <p class="message__content__content" [ngClass]="{'hidden' : msgHidden}">{{ message.content }} </p>
+    <div>
+      <form (ngSubmit)="onSubmit()" *ngIf="message$ | async as message" [ngClass]="{'hidden' : editHidden}">
+        <input id="message__content__input" class="message__content__edit" [(ngModel)]="contentInput" type="text"
+          [ngModelOptions]="{standalone: true}" />
+        <button type="submit" style="display: none"></button>
+      </form>
+    </div>
+
+
+
+  </div>
+</div>

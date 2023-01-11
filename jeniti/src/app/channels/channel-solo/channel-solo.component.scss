@@ -1,0 +1,17 @@
+@import "src/stylings/theme";
+.channel_infos {
+  p {
+    color: $app-secondary-fontcolor;
+  }
+  h4 {
+    color: $app-primary-fontcolor;
+    font-size: 1.5em;
+  }
+  .channel__field__description{
+    font-size: 0.9em;
+    margin-top: 10px;
+  }
+}
+
+
+
