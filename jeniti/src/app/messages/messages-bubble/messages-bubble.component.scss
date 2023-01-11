@@ -10,8 +10,12 @@
   button{
     border: none;
     background-color: transparent;
-    color: $app-primary-fontcolor;
+    color: $app-secondary-fontcolor;
 
+  }
+  button:hover{
+    cursor: pointer;
+    color: $app-primary-fontcolor;
   }
 
   .message__bubble {
