@@ -1,4 +1,4 @@
 export class UserSession {
-  public id!: number;
-  public sessionId!: string;
+  public id?: number;
+  public sessionId?: string;
 }

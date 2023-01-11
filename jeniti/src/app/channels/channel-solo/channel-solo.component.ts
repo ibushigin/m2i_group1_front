@@ -19,6 +19,12 @@ export class ChannelSoloComponent {
   ) {}
 
   public changeChannel() {
+    // this.auth.changeChannel(this.channel.id).subscribe(() => {
+    //   this.auth.refreshSessionUser().subscribe();
+    //   this.mService.getMessageByChannelId(this.channel.id).subscribe(() => {
+    //     this.route.navigate(['main', this.channel.id]);
+    //   });
+    // });
     this.auth.changeChannel(this.channel.id).subscribe(() => {
       this.mService.getMessageByChannelId(this.channel.id).subscribe(() => {
         this.auth

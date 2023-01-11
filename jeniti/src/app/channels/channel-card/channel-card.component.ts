@@ -13,26 +13,16 @@ import { ChannelsService } from 'src/app/core/services/channels.service';
 export class ChannelCardComponent implements OnInit {
   @Input() channel!: Channel;
   @Input() usersOnChannel!: User[];
-  public hidden: boolean;
   public route!: string;
-  public isActive$!: BehaviorSubject<Boolean>;
   public sessionUser$!: BehaviorSubject<User>;
 
   constructor(private cService: ChannelsService, private auth: AuthService) {
-    this.hidden = true;
-    this.isActive$ = new BehaviorSubject<Boolean>(false);
     this.sessionUser$ = auth.bSessionUser$;
+    this.auth.refreshSessionUser().subscribe();
   }
 
   ngOnInit(): void {
-    this.route = `/editChannel/${this.channel.id}`;
-    this.auth.refreshSessionUser().subscribe((data) => {
-      if (data.current_channel.id == this.channel.id) {
-        this.isActive$.next(true);
-      } else {
-        this.isActive$.next(false);
-      }
-    });
+    this.route = `main/editChannel/${this.channel.id}`;
   }
 
   deleteChannel(channelId: number): void {
