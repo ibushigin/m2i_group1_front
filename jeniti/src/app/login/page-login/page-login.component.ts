@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { MessagesService } from 'src/app/core/services/messages.service';
+import {UsersService} from "../../core/services/users.service";
 
 @Component({
   selector: 'app-page-login',
@@ -17,7 +18,8 @@ export class PageLoginComponent {
     private formBuilder: FormBuilder,
     private route: Router,
     private auth: AuthService,
-    private mService: MessagesService
+    private mService: MessagesService,
+    private uService: UsersService,
   ) {
     this.loginForm = this.formBuilder.group({
       email: [null, Validators.required],
@@ -34,7 +36,10 @@ export class PageLoginComponent {
             this.mService
               .getMessageByChannelId(user.current_channel.id)
               .subscribe((messages) => {
-                this.route.navigate(['main', user.current_channel.id]);
+                this.uService.refresh().subscribe(()=>{
+                  this.route.navigate(['main', user.current_channel.id])
+                })
+                ;
               })
           );
         } else {

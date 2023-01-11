@@ -13,5 +13,6 @@ export class MainHeaderComponent {
 
   constructor(private authService: AuthService) {
     this.user$ = this.authService.bSessionUser$;
+
   }
 }

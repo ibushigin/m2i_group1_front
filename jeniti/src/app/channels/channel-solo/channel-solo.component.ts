@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { Channel } from 'src/app/core/models/channels';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { MessagesService } from 'src/app/core/services/messages.service';
+import {UsersService} from "../../core/services/users.service";
 
 @Component({
   selector: 'app-channel-solo',
@@ -15,21 +16,19 @@ export class ChannelSoloComponent {
   constructor(
     private auth: AuthService,
     private mService: MessagesService,
-    private route: Router
+    private route: Router,
+    private uService: UsersService
   ) {}
 
   public changeChannel() {
-    // this.auth.changeChannel(this.channel.id).subscribe(() => {
-    //   this.auth.refreshSessionUser().subscribe();
-    //   this.mService.getMessageByChannelId(this.channel.id).subscribe(() => {
-    //     this.route.navigate(['main', this.channel.id]);
-    //   });
-    // });
     this.auth.changeChannel(this.channel.id).subscribe(() => {
       this.mService.getMessageByChannelId(this.channel.id).subscribe(() => {
         this.auth
           .refreshSessionUser()
-          .subscribe(() => this.route.navigate(['main', this.channel.id]));
+          .subscribe(()=>{
+            this.uService.refresh().subscribe(() => this.route.navigate(['main', this.channel.id]))
+          })
+          ;
       });
     });
   }

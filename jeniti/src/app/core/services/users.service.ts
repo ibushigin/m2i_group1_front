@@ -12,19 +12,18 @@ export class UsersService {
 
   constructor(private http: HttpClient) {
     this.bUsers$ = new BehaviorSubject<User[]>([]);
-    this.refresh();
+    this.refresh().subscribe();
   }
 
-  refresh(): void {
-    this.http
+  refresh() {
+    return this.http
       .get<User[]>(env.urlUsers)
-      .subscribe((data) => this.bUsers$.next(data));
+      .pipe(tap((users) => this.bUsers$.next(users)));
   }
 
   addUser(user: User): Observable<User> {
     return this.http
-      .post<User>(env.urlRegister, user)
-      .pipe(tap(() => this.refresh()));
+      .post<User>(env.urlRegister, user);
   }
 
 
