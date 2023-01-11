@@ -2,7 +2,7 @@
   <div class="container__channel" [ngClass]="{'active':  user.current_channel.id == channel.id}">
     <app-channel-solo [channel]="channel"></app-channel-solo>
 
-    <div class="div_users_channel" [ngClass]="{'hidden' : hidden}">
+    <div class="div_users_channel" [ngClass]="{'hidden' : user.current_channel.id != channel.id}">
       <p>Liste des membres:</p>
       <app-users-list></app-users-list>
       <div class="channel__card__icons" *ngIf="channel.id != 1">
