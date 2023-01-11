@@ -33,9 +33,9 @@ export class ChannelsService {
   }
 
   addChannel(channel: Channel) {
-    this.http
+    return this.http
       .post<Channel>(env.urlChannels, channel)
-      .subscribe(() => this.refresh());
+      .pipe(tap(() => this.refresh()));
   }
 
   updateChannel(channel: Channel, idChannel: number): Observable<Channel> {

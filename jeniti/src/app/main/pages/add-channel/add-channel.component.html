@@ -1,6 +1,6 @@
 <app-main-gabarit>
-  <div class="form__return">
-    <app-btn route="/main">
+  <div class="form__return" *ngIf="route">
+    <app-btn [route]="route">
       <app-icon type="BACK"></app-icon>
     </app-btn>
   </div>
@@ -15,7 +15,8 @@
 
       <div class="form_group">
         <label for="descriptionInput">Description</label>
-        <input type="text" id="descriptionInput" formControlName="description" placeholder="Entrer une description de salon">
+        <input type="text" id="descriptionInput" formControlName="description"
+          placeholder="Entrer une description de salon">
       </div>
 
       <div class="action_button">

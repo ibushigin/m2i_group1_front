@@ -23,7 +23,7 @@ export class ChannelSoloComponent {
       this.mService.getMessageByChannelId(this.channel.id).subscribe(() => {
         this.auth
           .refreshSessionUser()
-          .subscribe(() => this.route.navigate([this.channel.id]));
+          .subscribe(() => this.route.navigate(['main', this.channel.id]));
       });
     });
   }
