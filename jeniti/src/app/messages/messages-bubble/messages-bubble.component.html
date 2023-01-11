@@ -5,12 +5,12 @@
         }})</span>
       <div *ngIf="sessionUser$ | async as user">
         <div class="message__bubble__icons" *ngIf="user.id == message.user_id.id">
-          <app-btn route="null" (click)="deleteMessage(message.id)">
+          <button (click)="deleteMessage(message.id)">
             <app-icon type="DELETE"></app-icon>
-          </app-btn>
-          <app-btn route="null" (click)="hide()">
+          </button>
+          <button (click)="hide()">
             <app-icon type="EDIT"></app-icon>
-          </app-btn>
+          </button>
         </div>
       </div>
     </div>

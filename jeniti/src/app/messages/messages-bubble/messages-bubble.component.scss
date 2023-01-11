@@ -7,7 +7,12 @@
   width: 90%;
   border-radius: 15px;
 
+  button{
+    border: none;
+    background-color: transparent;
+    color: $app-primary-fontcolor;
 
+  }
 
   .message__bubble {
     color:$app-primary-fontcolor;
