@@ -5,10 +5,10 @@
         }})</span>
       <div *ngIf="sessionUser$ | async as user">
         <div class="message__bubble__icons" *ngIf="user.id == message.user_id.id">
-          <app-btn route="null" (click)="deleteMessage(message.id)">
+          <app-btn (click)="deleteMessage(message.id)">
             <app-icon type="DELETE"></app-icon>
           </app-btn>
-          <app-btn route="null" (click)="hide()">
+          <app-btn (click)="hide()">
             <app-icon type="EDIT"></app-icon>
           </app-btn>
         </div>
@@ -16,7 +16,8 @@
     </div>
     <p class="message__content__content" [ngClass]="{'hidden' : msgHidden}">{{ message.content }} </p>
     <div>
-      <form (ngSubmit)="onSubmit()" *ngIf="message$ | async as message" [ngClass]="{'hidden' : editHidden}">
+      <!-- <form (ngSubmit)="onSubmit()" *ngIf="message$ | async as message" [ngClass]="{'hidden' : editHidden}"> -->
+      <form (ngSubmit)="onSubmit()" *ngIf="message" [ngClass]="{'hidden' : editHidden}">
         <input id="message__content__input" class="message__content__edit" [(ngModel)]="contentInput" type="text"
           [ngModelOptions]="{standalone: true}" />
         <button type="submit" style="display: none"></button>

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { BehaviorSubject, Observable, tap } from 'rxjs';
+import { BehaviorSubject } from 'rxjs';
 import { Message } from 'src/app/core/models/messages';
 import { User } from 'src/app/core/models/users';
 import { AuthService } from 'src/app/core/services/auth.service';
@@ -19,7 +19,7 @@ export class MessagesBubbleComponent implements OnInit {
   editHidden: boolean = true;
   contentInput!: string;
   idMessage!: number;
-  message$!: Observable<Message>;
+  // message$!: Observable<Message>;
 
   constructor(
     private mService: MessagesService,
@@ -31,9 +31,10 @@ export class MessagesBubbleComponent implements OnInit {
 
   ngOnInit(): void {
     this.idMessage = this.message.id;
-    this.message$ = this.mService
-      .getMessageById(this.idMessage)
-      .pipe(tap((data) => (this.contentInput = data.content)));
+    this.contentInput = this.message.content;
+    // this.message$ = this.mService
+    //   .getMessageById(this.idMessage)
+    //   .pipe(tap((data) => (this.contentInput = data.content)));
   }
 
   deleteMessage(idMessage: number): void {
