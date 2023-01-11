@@ -34,7 +34,7 @@ export class PageLoginComponent {
             this.mService
               .getMessageByChannelId(user.current_channel.id)
               .subscribe((messages) => {
-                this.route.navigate(['main', `/${user.current_channel.id}`]);
+                this.route.navigate(['main', user.current_channel.id]);
               })
           );
         } else {
