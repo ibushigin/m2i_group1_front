@@ -5,5 +5,17 @@
 }
 .form_card{
   place-self: center;
+}
+.link{
+  display: flex;
+  flex-direction: row-reverse;
 
+  a{
+    color: $app-secondary-fontcolor;
+    text-decoration: none;
+  }
+  a:hover{
+    color: $app-primary-fontcolor;
+
+  }
 }

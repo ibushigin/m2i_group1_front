@@ -10,6 +10,6 @@ import { AuthService } from 'src/app/core/services/auth.service';
 export class PageLogoutComponent {
   constructor(private auth: AuthService, private route: Router) {
     this.auth.logout();
-    this.route.navigate(['/']);
+    this.route.navigate(['']);
   }
 }

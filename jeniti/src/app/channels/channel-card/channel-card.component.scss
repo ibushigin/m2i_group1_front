@@ -6,6 +6,7 @@
   cursor: pointer;
   padding: 20px 10px;
   position: relative;
+  user-select: none;
 }
 .container__channel:before{
   content: "";
@@ -50,7 +51,12 @@ button{
 }
 button:hover{
   cursor: pointer;
-  
+}
+app-icon{
+  color: $app-secondary-fontcolor;
+}
+app-icon:hover{
+  color: $app-primary-fontcolor;
 }
 
 

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import {Component, Input, OnChanges, OnInit} from '@angular/core';
 import { User } from 'src/app/core/models/users';
 
 @Component({
@@ -6,6 +6,7 @@ import { User } from 'src/app/core/models/users';
   templateUrl: './user-bubble.component.html',
   styleUrls: ['./user-bubble.component.scss'],
 })
-export class UserBubbleComponent {
+export class UserBubbleComponent{
   @Input() user!: User;
+
 }
