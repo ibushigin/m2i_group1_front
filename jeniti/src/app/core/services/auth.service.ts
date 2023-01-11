@@ -19,7 +19,7 @@ export class AuthService {
     this.bSessionUser$ = new BehaviorSubject<User>(this.init);
   }
 
-  login(credential: Credential): Observable<User> {
+  login(credential: any): Observable<User> {
     return this.http.post<User>(env.urlLogin, credential);
   }
 
@@ -45,7 +45,6 @@ export class AuthService {
       })
     );
   }
-
 
   refreshSessionUser(): Observable<User> {
     const user: string | null = localStorage.getItem('currentUser');
