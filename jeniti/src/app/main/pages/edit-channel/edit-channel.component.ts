@@ -21,7 +21,7 @@ export class EditChannelComponent {
     this.idChannel = +this.aRouter.snapshot.params['id'];
 
     this.cService.getChannelById(this.idChannel).subscribe((channel) => {
-      console.log(channel);
+
       this.channelForm = this.formBuilder.group({
         name: [channel.name, Validators.required],
         description: [channel.description, Validators.required],
@@ -32,6 +32,6 @@ export class EditChannelComponent {
   onSubmit(): void {
     this.cService
       .updateChannel(this.channelForm.value, this.idChannel)
-      .subscribe(() => this.router.navigateByUrl('/main'));
+      .subscribe(() => this.router.navigate(['main', this.idChannel]));
   }
 }

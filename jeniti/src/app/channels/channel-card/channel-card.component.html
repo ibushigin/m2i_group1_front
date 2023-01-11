@@ -4,11 +4,11 @@
 
     <div class="div_users_channel" [ngClass]="{'hidden' : user.current_channel.id != channel.id}">
       <p>Liste des membres:</p>
-      <app-users-list></app-users-list>
+      <app-user-bubble *ngFor="let user of users$ | async" [user]="user"></app-user-bubble>
       <div class="channel__card__icons" *ngIf="channel.id != 1">
-        <app-btn (click)="deleteChannel(channel.id)">
+        <button (click)="deleteChannel(channel.id)">
           <app-icon type="DELETE"></app-icon>
-        </app-btn>
+        </button>
         <app-btn [route]="route">
           <app-icon type="EDIT"></app-icon>
         </app-btn>

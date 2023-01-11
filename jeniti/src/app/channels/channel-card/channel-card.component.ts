@@ -4,6 +4,7 @@ import { Channel } from 'src/app/core/models/channels';
 import { User } from 'src/app/core/models/users';
 import { AuthService } from 'src/app/core/services/auth.service';
 import { ChannelsService } from 'src/app/core/services/channels.service';
+import {UsersService} from "../../core/services/users.service";
 
 @Component({
   selector: 'app-channel-card',
@@ -15,10 +16,13 @@ export class ChannelCardComponent implements OnInit {
   @Input() usersOnChannel!: User[];
   public route!: string;
   public sessionUser$!: BehaviorSubject<User>;
+  public users$!: BehaviorSubject<User[]>;
 
-  constructor(private cService: ChannelsService, private auth: AuthService) {
+
+  constructor(private cService: ChannelsService, private auth: AuthService, private uService: UsersService) {
     this.sessionUser$ = auth.bSessionUser$;
     this.auth.refreshSessionUser().subscribe();
+    this.users$ = uService.bUsers$;
   }
 
   ngOnInit(): void {

@@ -8,19 +8,13 @@ import { Message } from '../models/messages';
   providedIn: 'root',
 })
 export class MessagesService {
-  public messages$!: Observable<Message[]>;
   public bMessages$!: BehaviorSubject<Message[]>;
 
   constructor(private http: HttpClient) {
     this.bMessages$ = new BehaviorSubject<Message[]>([]);
-    // this.refresh();
+
   }
 
-  // refresh(): void {
-  //   this.http
-  //     .get<Message[]>(env.urlMessages)
-  //     .subscribe((data) => this.bMessages$.next(data));
-  // }
 
   getMessageById(messageId: number): Observable<Message> {
     return this.http.get<Message>(`${env.urlMessages}/${messageId}`);

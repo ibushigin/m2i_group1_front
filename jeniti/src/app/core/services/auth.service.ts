@@ -46,27 +46,6 @@ export class AuthService {
     );
   }
 
-  // getSessionUser() {
-  //   let responseUser: User;
-  //   let responseCurrent_channel: Channel;
-  //   this.bSessionUser$.subscribe((data) => {
-  //     responseUser.id = data.id;
-  //     responseUser.email = data.email;
-  //     responseUser.password = data.password;
-  //     responseUser.username = data.username;
-  //     responseUser.isLogged = data.isLogged;
-  //     responseUser.sessionId = data.sessionId;
-
-  //     responseCurrent_channel.id = data.current_channel.id;
-  //     responseCurrent_channel.name = data.current_channel.name;
-  //     responseCurrent_channel.created_at = data.current_channel.created_at;
-  //     responseCurrent_channel.description = data.current_channel.description;
-
-  //     responseUser.current_channel = responseCurrent_channel;
-
-  //     return responseUser;
-  //   });
-  // }
 
   refreshSessionUser(): Observable<User> {
     const user: string | null = localStorage.getItem('currentUser');

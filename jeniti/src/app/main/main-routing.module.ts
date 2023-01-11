@@ -3,18 +3,12 @@ import { RouterModule, Routes } from '@angular/router';
 import { AuthGuard } from '../core/guards/auth.guard';
 import { AddChannelComponent } from './pages/add-channel/add-channel.component';
 import { EditChannelComponent } from './pages/edit-channel/edit-channel.component';
-import { EditMessageComponent } from './pages/edit-message/edit-message.component';
 import { GetMessagesComponent } from './pages/get-messages/get-messages.component';
 
 const routes: Routes = [
   {
     path: 'addChannel',
     component: AddChannelComponent,
-    canActivate: [AuthGuard],
-  },
-  {
-    path: 'editMessage/:id',
-    component: EditMessageComponent,
     canActivate: [AuthGuard],
   },
   {

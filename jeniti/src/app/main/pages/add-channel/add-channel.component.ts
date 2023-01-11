@@ -37,6 +37,6 @@ export class AddChannelComponent {
   onSubmit(): void {
     this.cService
       .addChannel(this.channelForm.value)
-      .subscribe(() => this.router.navigate(['main', this.currentChannelId]));
+      .subscribe((channel) => this.router.navigate(['main', channel.id]));
   }
 }

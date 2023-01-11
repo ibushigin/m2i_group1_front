@@ -8,8 +8,7 @@ import { Channel } from '../models/channels';
   providedIn: 'root',
 })
 export class ChannelsService {
-  public channels$!: Observable<Channel[]>;
-  public bChannels$!: BehaviorSubject<Channel[]>;
+  public bChannels$: BehaviorSubject<Channel[]>;
 
   constructor(private http: HttpClient) {
     this.bChannels$ = new BehaviorSubject<Channel[]>([]);
@@ -19,7 +18,7 @@ export class ChannelsService {
   refresh(): void {
     this.http
       .get<Channel[]>(env.urlChannels)
-      .subscribe((data) => this.bChannels$.next(data));
+      .subscribe((channels) => this.bChannels$.next(channels));
   }
 
   getChannelById(channelId: number) {
